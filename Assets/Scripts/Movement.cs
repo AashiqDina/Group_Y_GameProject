@@ -6,14 +6,19 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     PlayerInput Input;
-    InputAction Move;
+    InputAction ForwardsBack;
+    InputAction RightLeft;
+    public Rigidbody rb;
     public float Speed;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         Input = GetComponent<PlayerInput>();
-        Move = Input.actions.FindAction("Move");
+        ForwardsBack = Input.actions.FindAction("MoveX");
+        RightLeft = Input.actions.FindAction("MoveZ");
     }
 
     // Update is called once per frame
@@ -23,8 +28,11 @@ public class Movement : MonoBehaviour
     }
 
     void PlayerMove(){
-        Vector2 toMove = Move.ReadValue<Vector2>();
-        transform.position += new Vector3(toMove.x, 0, toMove.y) * Speed * Time.deltaTime;
+        float MoveForwardsBack = ForwardsBack.ReadValue<float>() * Speed;
+        float MoveRightLeft = RightLeft.ReadValue<float>() * Speed;
+        Vector3 move = (transform.right * MoveRightLeft) + (transform.forward * MoveForwardsBack);
+        rb.velocity = new Vector3(move.x, rb.velocity.y, move.z);
+
     }
 }
 
