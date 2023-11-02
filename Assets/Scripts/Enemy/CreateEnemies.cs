@@ -19,7 +19,7 @@ public class CreateEnemies : MonoBehaviour
         enemy.SetActive(true);
         for (int i = 0; i < spawnPoints.Count; i++)
         {
-            clone.Add(Instantiate(enemy, spawnPoints[i]));
+            clone.Add(Instantiate(enemy, spawnPoints[i].position, Quaternion.identity));
         }
         enemy.SetActive(false);
 
