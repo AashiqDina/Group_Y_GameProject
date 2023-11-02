@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -129,7 +129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 11801011}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dungeon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 21433880}
   - component: {fileID: 21433879}
   - component: {fileID: 21433878}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -310,7 +310,7 @@ GameObject:
   - component: {fileID: 34005551}
   - component: {fileID: 34005550}
   - component: {fileID: 34005549}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 49831060}
   - component: {fileID: 49831059}
   - component: {fileID: 49831058}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,7 +522,7 @@ GameObject:
   - component: {fileID: 53425209}
   - component: {fileID: 53425208}
   - component: {fileID: 53425207}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -945,7 +945,7 @@ GameObject:
   - component: {fileID: 194773294}
   - component: {fileID: 194773293}
   - component: {fileID: 194773292}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1052,7 +1052,7 @@ GameObject:
   - component: {fileID: 221286458}
   - component: {fileID: 221286457}
   - component: {fileID: 221286456}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1158,7 +1158,7 @@ GameObject:
   - component: {fileID: 227226470}
   - component: {fileID: 227226469}
   - component: {fileID: 227226468}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1265,7 +1265,7 @@ GameObject:
   - component: {fileID: 252463034}
   - component: {fileID: 252463033}
   - component: {fileID: 252463032}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Area Walls (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1370,7 +1370,7 @@ GameObject:
   - component: {fileID: 336930082}
   - component: {fileID: 336930081}
   - component: {fileID: 336930080}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1511,7 +1511,7 @@ GameObject:
   - component: {fileID: 388031922}
   - component: {fileID: 388031921}
   - component: {fileID: 388031920}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1618,7 +1618,7 @@ GameObject:
   - component: {fileID: 441910825}
   - component: {fileID: 441910824}
   - component: {fileID: 441910823}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain Parkour Walls (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1723,7 +1723,7 @@ GameObject:
   - component: {fileID: 461473894}
   - component: {fileID: 461473893}
   - component: {fileID: 461473892}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1830,7 +1830,7 @@ GameObject:
   - component: {fileID: 461902584}
   - component: {fileID: 461902583}
   - component: {fileID: 461902582}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2079,7 +2079,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 491416379}
+<<<<<<< Updated upstream
   Speed: 100
+=======
+  Speed: 10
+  JumpStrength: 10
+  PlatformLM:
+    serializedVersion: 2
+    m_Bits: 8
+>>>>>>> Stashed changes
 --- !u!136 &491416377
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2158,7 +2166,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1 &545528666
 GameObject:
@@ -2172,7 +2180,7 @@ GameObject:
   - component: {fileID: 545528670}
   - component: {fileID: 545528669}
   - component: {fileID: 545528668}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2383,7 +2391,7 @@ GameObject:
   - component: {fileID: 660201329}
   - component: {fileID: 660201328}
   - component: {fileID: 660201327}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain Parkour Walls (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2792,7 +2800,7 @@ GameObject:
   - component: {fileID: 780726517}
   - component: {fileID: 780726516}
   - component: {fileID: 780726515}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3003,7 +3011,7 @@ GameObject:
   - component: {fileID: 796290298}
   - component: {fileID: 796290297}
   - component: {fileID: 796290296}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3109,7 +3117,7 @@ GameObject:
   - component: {fileID: 808100119}
   - component: {fileID: 808100118}
   - component: {fileID: 808100117}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3215,7 +3223,7 @@ GameObject:
   - component: {fileID: 835063933}
   - component: {fileID: 835063932}
   - component: {fileID: 835063931}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain Parkour Walls (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3530,7 +3538,7 @@ GameObject:
   - component: {fileID: 959261801}
   - component: {fileID: 959261800}
   - component: {fileID: 959261799}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4089,7 +4097,7 @@ GameObject:
   - component: {fileID: 986627424}
   - component: {fileID: 986627423}
   - component: {fileID: 986627422}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain Parkour Walls (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4506,7 +4514,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1072569677}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain Parkour Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4652,7 +4660,7 @@ GameObject:
   - component: {fileID: 1119524040}
   - component: {fileID: 1119524039}
   - component: {fileID: 1119524038}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4759,7 +4767,7 @@ GameObject:
   - component: {fileID: 1119969756}
   - component: {fileID: 1119969755}
   - component: {fileID: 1119969754}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4865,7 +4873,7 @@ GameObject:
   - component: {fileID: 1121598016}
   - component: {fileID: 1121598015}
   - component: {fileID: 1121598014}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4971,7 +4979,7 @@ GameObject:
   - component: {fileID: 1179206517}
   - component: {fileID: 1179206516}
   - component: {fileID: 1179206515}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5284,7 +5292,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1224689054}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain Parkour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5354,8 +5362,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1241819628}
+<<<<<<< Updated upstream
   m_Layer: 0
   m_Name: Main Area Walls
+=======
+  m_Layer: 3
+  m_Name: Main Area
+>>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5398,7 +5411,7 @@ GameObject:
   - component: {fileID: 1310715966}
   - component: {fileID: 1310715965}
   - component: {fileID: 1310715964}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5504,7 +5517,7 @@ GameObject:
   - component: {fileID: 1317968313}
   - component: {fileID: 1317968312}
   - component: {fileID: 1317968311}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5610,7 +5623,7 @@ GameObject:
   - component: {fileID: 1347546746}
   - component: {fileID: 1347546745}
   - component: {fileID: 1347546744}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5716,7 +5729,7 @@ GameObject:
   - component: {fileID: 1365590271}
   - component: {fileID: 1365590270}
   - component: {fileID: 1365590269}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5823,7 +5836,7 @@ GameObject:
   - component: {fileID: 1388394530}
   - component: {fileID: 1388394529}
   - component: {fileID: 1388394528}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain Parkour Tunnel Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5928,7 +5941,7 @@ GameObject:
   - component: {fileID: 1392885731}
   - component: {fileID: 1392885730}
   - component: {fileID: 1392885729}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain Parkour Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6033,7 +6046,7 @@ GameObject:
   - component: {fileID: 1426675973}
   - component: {fileID: 1426675972}
   - component: {fileID: 1426675971}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6139,7 +6152,7 @@ GameObject:
   - component: {fileID: 1430310312}
   - component: {fileID: 1430310311}
   - component: {fileID: 1430310310}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6245,7 +6258,7 @@ GameObject:
   - component: {fileID: 1431406657}
   - component: {fileID: 1431406656}
   - component: {fileID: 1431406655}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6456,7 +6469,7 @@ GameObject:
   - component: {fileID: 1475797523}
   - component: {fileID: 1475797522}
   - component: {fileID: 1475797521}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6550,6 +6563,114 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475797519}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< Updated upstream
+=======
+--- !u!1 &1495910732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1495910733}
+  - component: {fileID: 1495910736}
+  - component: {fileID: 1495910735}
+  - component: {fileID: 1495910734}
+  m_Layer: 3
+  m_Name: Mountain Parkour Tunnel Wall (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1495910733
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495910732}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -463, y: -345.69458, z: -457}
+  m_LocalScale: {x: 10, y: 750, z: 150}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1835584095}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &1495910734
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495910732}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1495910735
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495910732}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1495910736
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495910732}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+>>>>>>> Stashed changes
 --- !u!1 &1512571096
 GameObject:
   m_ObjectHideFlags: 0
@@ -6562,7 +6683,7 @@ GameObject:
   - component: {fileID: 1512571100}
   - component: {fileID: 1512571099}
   - component: {fileID: 1512571098}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Area Walls (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6667,7 +6788,7 @@ GameObject:
   - component: {fileID: 1559779121}
   - component: {fileID: 1559779120}
   - component: {fileID: 1559779119}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6773,7 +6894,7 @@ GameObject:
   - component: {fileID: 1565838589}
   - component: {fileID: 1565838588}
   - component: {fileID: 1565838587}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7128,7 +7249,7 @@ GameObject:
   - component: {fileID: 1613294673}
   - component: {fileID: 1613294672}
   - component: {fileID: 1613294671}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Area Walls (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7443,7 +7564,7 @@ GameObject:
   - component: {fileID: 1651084658}
   - component: {fileID: 1651084657}
   - component: {fileID: 1651084656}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7549,7 +7670,7 @@ GameObject:
   - component: {fileID: 1720982541}
   - component: {fileID: 1720982540}
   - component: {fileID: 1720982539}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7655,7 +7776,7 @@ GameObject:
   - component: {fileID: 1724552517}
   - component: {fileID: 1724552516}
   - component: {fileID: 1724552515}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7971,7 +8092,7 @@ GameObject:
   - component: {fileID: 1740765509}
   - component: {fileID: 1740765508}
   - component: {fileID: 1740765507}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8182,7 +8303,7 @@ GameObject:
   - component: {fileID: 1791579101}
   - component: {fileID: 1791579100}
   - component: {fileID: 1791579099}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8284,9 +8405,15 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+<<<<<<< Updated upstream
   - component: {fileID: 1879009055}
   m_Layer: 0
   m_Name: Spare Room Walls
+=======
+  - component: {fileID: 1835584095}
+  m_Layer: 3
+  m_Name: Main Area Walls
+>>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8326,7 +8453,7 @@ GameObject:
   - component: {fileID: 1879407185}
   - component: {fileID: 1879407184}
   - component: {fileID: 1879407183}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mountain Parkour Tunnel Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8431,7 +8558,7 @@ GameObject:
   - component: {fileID: 1936455213}
   - component: {fileID: 1936455212}
   - component: {fileID: 1936455211}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8537,7 +8664,7 @@ GameObject:
   - component: {fileID: 1981323087}
   - component: {fileID: 1981323086}
   - component: {fileID: 1981323085}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8853,7 +8980,7 @@ GameObject:
   - component: {fileID: 1998537938}
   - component: {fileID: 1998537937}
   - component: {fileID: 1998537936}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8959,7 +9086,7 @@ GameObject:
   - component: {fileID: 2002533041}
   - component: {fileID: 2002533040}
   - component: {fileID: 2002533039}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Main Area Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9064,7 +9191,7 @@ GameObject:
   - component: {fileID: 2036350761}
   - component: {fileID: 2036350760}
   - component: {fileID: 2036350759}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9170,7 +9297,7 @@ GameObject:
   - component: {fileID: 2056900085}
   - component: {fileID: 2056900084}
   - component: {fileID: 2056900083}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Quad (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
