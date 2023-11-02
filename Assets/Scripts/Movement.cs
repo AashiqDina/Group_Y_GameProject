@@ -32,7 +32,6 @@ public class Movement : MonoBehaviour
         float MoveRightLeft = RightLeft.ReadValue<float>() * Speed;
         Vector3 move = (transform.right * MoveRightLeft) + (transform.forward * MoveForwardsBack);
         rb.velocity = new Vector3(move.x, rb.velocity.y, move.z);
-
     }
 }
 
