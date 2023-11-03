@@ -17,6 +17,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         health.setMaxHealth(maxHealth);
         currentHealth = maxHealth;
+        transform.position = spawnPoint.position;
     }
 
     // Update is called once per frame

@@ -46,12 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 7309175876301876287}
-  spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  spawnPoints: []
 --- !u!1 &7309175876301876287
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,7 +112,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a35ce12c7591f504196ef01cae6b6792, type: 2}
+  - {fileID: 2100000, guid: 1d91ca5905af4ec42983cd79bef9d168, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

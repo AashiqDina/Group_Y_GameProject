@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour
 {
-    public GameObject enemy;
     public CreateEnemies createEnemies;
     private void OnTriggerEnter(Collider player)
     {
