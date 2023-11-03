@@ -50,6 +50,7 @@ public class Movement : MonoBehaviour
 
     void PlayerJump(){
         OnGround = Physics.CheckSphere(CheckGround.position, GroundRadius, (int) PlatformLM);
+        Debug.Log("Can Jump:" + OnGround);
         if(Jump.triggered && OnGround){
             rb.velocity = new Vector3(0, JumpStrength, 0);
         }
