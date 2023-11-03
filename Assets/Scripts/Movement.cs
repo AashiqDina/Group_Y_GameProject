@@ -12,8 +12,13 @@ public class Movement : MonoBehaviour
     public Rigidbody rb;
     public float Speed;
     public float JumpStrength;
+     private Collider PlayerCollider;
+
+    private bool OnGround = false;
+     [SerializeField] private Transform CheckGround;
+    [SerializeField] private float GroundRadius;
     [SerializeField] private LayerMask PlatformLM;
-    private Collider PlayerCollider;
+
 
 
 
@@ -32,6 +37,7 @@ public class Movement : MonoBehaviour
     {
         PlayerMove();
         PlayerJump();
+        
     }
 
     void PlayerMove(){
@@ -43,23 +49,12 @@ public class Movement : MonoBehaviour
     }
 
     void PlayerJump(){
-        if(Jump.triggered){
+        OnGround = Physics.CheckSphere(CheckGround.position, GroundRadius, (int) PlatformLM);
+        if(Jump.triggered && OnGround){
             rb.velocity = new Vector3(0, JumpStrength, 0);
         }
  
     }
 
-    // private bool Grounded(){
-    //     float HeightIncrease = 5f;
-    //     Vector3 forward = transform.TransformDirection(Vector3.down) * 10;
-    //     if (Physics.Raycast(PlayerCollider.bounds.center, Vector3.down, (PlayerCollider.bounds.extents.y + HeightIncrease), PlatformLM)){
-    //         Debug.Log("We hit");
-    //         return true;
-    //     }
-    //     else{
-    //         Debug.Log("We no hit");
-    //         return false;
-    //     }
-    // }
 }
 
