@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Heath : MonoBehaviour
 {
-    private Slider slider;
+    public Slider slider;
     public void setMaxHealth(int maxHp)
     {
         slider.maxValue = maxHp;

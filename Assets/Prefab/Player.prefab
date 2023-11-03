@@ -225,6 +225,7 @@ GameObject:
   - component: {fileID: 1647468725699361933}
   - component: {fileID: 9009269389322778734}
   - component: {fileID: 3832344022562078441}
+  - component: {fileID: 8533524024576593573}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -399,6 +400,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &8533524024576593573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2628567066513431205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1568c9db207d72e4d8b911ab68678014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  maxOrbs: 2
+  health: {fileID: 0}
+  numberOrbs: {fileID: 0}
+  spawnPoint: {fileID: 0}
 --- !u!1 &4499600127669265617
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,7 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: 0}
+  m_Actions: {fileID: -944628639613478452, guid: 68da6387bcc4b400ea76422ab5d8a644, type: 3}
   m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
