@@ -53,6 +53,15 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Run"",
+                    ""type"": ""Value"",
+                    ""id"": ""622efcaa-0214-405c-ba2b-94e30d983018"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -132,6 +141,17 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""627efdc4-30fc-483c-a57b-df06c9e137fb"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Run"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -191,6 +211,7 @@ public partial class @Input: IInputActionCollection2, IDisposable
         m_Movement_MoveX = m_Movement.FindAction("MoveX", throwIfNotFound: true);
         m_Movement_MoveZ = m_Movement.FindAction("MoveZ", throwIfNotFound: true);
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
+        m_Movement_Run = m_Movement.FindAction("Run", throwIfNotFound: true);
         // Look
         m_Look = asset.FindActionMap("Look", throwIfNotFound: true);
         m_Look_MouseX_Axis = m_Look.FindAction("MouseX_Axis", throwIfNotFound: true);
@@ -259,6 +280,7 @@ public partial class @Input: IInputActionCollection2, IDisposable
     private readonly InputAction m_Movement_MoveX;
     private readonly InputAction m_Movement_MoveZ;
     private readonly InputAction m_Movement_Jump;
+    private readonly InputAction m_Movement_Run;
     public struct MovementActions
     {
         private @Input m_Wrapper;
@@ -266,6 +288,7 @@ public partial class @Input: IInputActionCollection2, IDisposable
         public InputAction @MoveX => m_Wrapper.m_Movement_MoveX;
         public InputAction @MoveZ => m_Wrapper.m_Movement_MoveZ;
         public InputAction @Jump => m_Wrapper.m_Movement_Jump;
+        public InputAction @Run => m_Wrapper.m_Movement_Run;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -284,6 +307,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Run.started += instance.OnRun;
+            @Run.performed += instance.OnRun;
+            @Run.canceled += instance.OnRun;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -297,6 +323,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Run.started -= instance.OnRun;
+            @Run.performed -= instance.OnRun;
+            @Run.canceled -= instance.OnRun;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -373,6 +402,7 @@ public partial class @Input: IInputActionCollection2, IDisposable
         void OnMoveX(InputAction.CallbackContext context);
         void OnMoveZ(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnRun(InputAction.CallbackContext context);
     }
     public interface ILookActions
     {

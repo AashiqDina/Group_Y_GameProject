@@ -11,10 +11,11 @@ public class Movement : MonoBehaviour
     private InputAction rightLeft;
     private InputAction jump;
     public Rigidbody rb;
-    public float Speed;
+    public float BaseSpeed;
     public float JumpStrength;
 
     private bool OnGround = false;
+    private bool IsRunning;
     [SerializeField] private Transform CheckGround;
     [SerializeField] private float GroundRadius;
     [SerializeField] private LayerMask PlatformLM;
@@ -27,9 +28,12 @@ public class Movement : MonoBehaviour
     {
         input = new Input();
         movement = input.Movement;
+
         forwardsBack = movement.MoveX;
         rightLeft = movement.MoveZ;
+
         movement.Jump.performed += PlayerJump;
+
     }
 
     // Update is called once per frame
@@ -45,8 +49,17 @@ public class Movement : MonoBehaviour
     }
 
     void PlayerMove(){
-        float MoveForwardsBack = forwardsBack.ReadValue<float>() * Speed;
-        float MoveRightLeft = rightLeft.ReadValue<float>() * Speed;
+        float RunSpeed = 3 * BaseSpeed;
+        float currentSpeed;
+        if(movement.Run.ReadValue<float>() > 0 && Physics.CheckSphere(CheckGround.position, GroundRadius, (int)PlatformLM)){
+            currentSpeed = RunSpeed;
+        }
+        else{
+            currentSpeed = BaseSpeed;
+        }
+
+        float MoveForwardsBack = forwardsBack.ReadValue<float>() * currentSpeed;
+        float MoveRightLeft = rightLeft.ReadValue<float>() * currentSpeed;
         Vector3 move = (transform.right * MoveRightLeft) + (transform.forward * MoveForwardsBack);
         rb.velocity = new Vector3(move.x, rb.velocity.y, move.z);
     }
@@ -60,6 +73,7 @@ public class Movement : MonoBehaviour
             rb.AddForce(Vector3.up * JumpStrength, ForceMode.Impulse);
         }
     }
+    
 
 }
 

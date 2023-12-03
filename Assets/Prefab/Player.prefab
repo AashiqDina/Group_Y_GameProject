@@ -221,7 +221,6 @@ GameObject:
   - component: {fileID: 8924745944985275985}
   - component: {fileID: 2423134156424364750}
   - component: {fileID: 8051090675552761328}
-  - component: {fileID: 4526628757218474489}
   - component: {fileID: 1647468725699361933}
   - component: {fileID: 9009269389322778734}
   - component: {fileID: 3832344022562078441}
@@ -300,29 +299,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &4526628757218474489
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2628567066513431205}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1647468725699361933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 3832344022562078441}
-  Speed: 10
+  BaseSpeed: 0
   JumpStrength: 10
   CheckGround: {fileID: 303629259644186286}
   GroundRadius: 1
