@@ -13,12 +13,11 @@ public class Movement : MonoBehaviour
     public Rigidbody rb;
     public float BaseSpeed;
     public float JumpStrength;
-
     private bool OnGround = false;
-    private bool IsRunning;
     [SerializeField] private Transform CheckGround;
     [SerializeField] private float GroundRadius;
     [SerializeField] private LayerMask PlatformLM;
+
 
 
 
@@ -49,10 +48,14 @@ public class Movement : MonoBehaviour
     }
 
     void PlayerMove(){
-        float RunSpeed = 3 * BaseSpeed;
+        float RunSpeed = 2 * BaseSpeed;
         float currentSpeed;
         if(movement.Run.ReadValue<float>() > 0 && Physics.CheckSphere(CheckGround.position, GroundRadius, (int)PlatformLM)){
             currentSpeed = RunSpeed;
+            Debug.Log("run");
+        }
+        else if(movement.Run.ReadValue<float>() > 0){
+            currentSpeed = BaseSpeed * 1.5f;
         }
         else{
             currentSpeed = BaseSpeed;

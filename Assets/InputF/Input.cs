@@ -202,6 +202,34 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""GunShoot"",
+            ""id"": ""b6420e0f-0248-4ed8-a912-26cfb4aa9a57"",
+            ""actions"": [
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Value"",
+                    ""id"": ""b11c1581-6088-4d6b-8728-8843849d0228"",
+                    ""expectedControlType"": ""Analog"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a67894a8-8194-4725-a418-5bc90f7c057e"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -216,6 +244,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
         m_Look = asset.FindActionMap("Look", throwIfNotFound: true);
         m_Look_MouseX_Axis = m_Look.FindAction("MouseX_Axis", throwIfNotFound: true);
         m_Look_MouseY_Axis = m_Look.FindAction("MouseY_Axis", throwIfNotFound: true);
+        // GunShoot
+        m_GunShoot = asset.FindActionMap("GunShoot", throwIfNotFound: true);
+        m_GunShoot_Shoot = m_GunShoot.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -397,6 +428,52 @@ public partial class @Input: IInputActionCollection2, IDisposable
         }
     }
     public LookActions @Look => new LookActions(this);
+
+    // GunShoot
+    private readonly InputActionMap m_GunShoot;
+    private List<IGunShootActions> m_GunShootActionsCallbackInterfaces = new List<IGunShootActions>();
+    private readonly InputAction m_GunShoot_Shoot;
+    public struct GunShootActions
+    {
+        private @Input m_Wrapper;
+        public GunShootActions(@Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Shoot => m_Wrapper.m_GunShoot_Shoot;
+        public InputActionMap Get() { return m_Wrapper.m_GunShoot; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GunShootActions set) { return set.Get(); }
+        public void AddCallbacks(IGunShootActions instance)
+        {
+            if (instance == null || m_Wrapper.m_GunShootActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GunShootActionsCallbackInterfaces.Add(instance);
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+        }
+
+        private void UnregisterCallbacks(IGunShootActions instance)
+        {
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+        }
+
+        public void RemoveCallbacks(IGunShootActions instance)
+        {
+            if (m_Wrapper.m_GunShootActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IGunShootActions instance)
+        {
+            foreach (var item in m_Wrapper.m_GunShootActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GunShootActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public GunShootActions @GunShoot => new GunShootActions(this);
     public interface IMovementActions
     {
         void OnMoveX(InputAction.CallbackContext context);
@@ -408,5 +485,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
     {
         void OnMouseX_Axis(InputAction.CallbackContext context);
         void OnMouseY_Axis(InputAction.CallbackContext context);
+    }
+    public interface IGunShootActions
+    {
+        void OnShoot(InputAction.CallbackContext context);
     }
 }
