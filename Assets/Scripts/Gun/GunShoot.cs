@@ -16,6 +16,7 @@ public class GunShoot : MonoBehaviour
     public int Ammo;
     private bool NeedToReload;
     private Rigidbody PlayerRB;
+    public float GunDamage;
 
 
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class GunShoot : MonoBehaviour
         input = new Input();
         gunShoot = input.GunShoot;
         shoot = gunShoot.Shoot;
+        
 
         PlayerRB = GameObject.Find("Player").GetComponent<Rigidbody>();
     }
