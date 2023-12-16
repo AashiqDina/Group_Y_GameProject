@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     public float BaseSpeed;
     public float JumpStrength;
     private bool OnGround = false;
+    private float LastJump = 0;
     [SerializeField] private Transform CheckGround;
     [SerializeField] private float GroundRadius;
     [SerializeField] private LayerMask PlatformLM;
@@ -31,7 +32,7 @@ public class Movement : MonoBehaviour
         forwardsBack = movement.MoveX;
         rightLeft = movement.MoveZ;
 
-        movement.Jump.performed += PlayerJump;
+        //movement.Jump.performed += PlayerJump
 
     }
 
@@ -39,6 +40,9 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         PlayerMove();
+        if(movement.Jump.ReadValue<float>() > 0){
+            PlayerJump();
+        }
         
     }
 
@@ -52,7 +56,6 @@ public class Movement : MonoBehaviour
         float currentSpeed;
         if(movement.Run.ReadValue<float>() > 0 && Physics.CheckSphere(CheckGround.position, GroundRadius, (int)PlatformLM)){
             currentSpeed = RunSpeed;
-            Debug.Log("run");
         }
         else if(movement.Run.ReadValue<float>() > 0){
             currentSpeed = BaseSpeed * 1.5f;
@@ -67,14 +70,23 @@ public class Movement : MonoBehaviour
         rb.velocity = new Vector3(move.x, rb.velocity.y, move.z);
     }
 
-    public void PlayerJump(InputAction.CallbackContext obj)
+    public void PlayerJump()
     {
         OnGround = Physics.CheckSphere(CheckGround.position, GroundRadius, (int)PlatformLM);
-        if (OnGround)
+        if (OnGround && CanJump())
         {
             Debug.Log("jump");
             rb.AddForce(Vector3.up * JumpStrength, ForceMode.Impulse);
+
         }
+    }
+
+    bool CanJump(){
+        if (Time.time - LastJump > 0.1){
+            LastJump = Time.time;
+            return true;
+        }
+        return false;
     }
     
 

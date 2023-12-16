@@ -10,18 +10,26 @@ public class PlayerInteraction : MonoBehaviour
     private int numberOfOrbs = 0;
     public Heath health;
     public NumberOrbs numberOrbs;
-
     public Transform spawnPoint;
+    private bool NeedHealthRecovery = false;
+    private bool OnGround = false;
+    
+    [SerializeField] private Transform CheckGround;
+    [SerializeField] private float GroundRadius;
+    [SerializeField] private LayerMask PlatformLM;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        transform.position = spawnPoint.position;
         health.setMaxHealth(maxHealth);
         currentHealth = maxHealth;
-        transform.position = spawnPoint.position;
     }
 
     // Update is called once per frame
-
+    void Update(){
+        RespawnHeal();
+    }
 
     void OnCollisionStay(Collision collision)
     {
@@ -32,9 +40,7 @@ public class PlayerInteraction : MonoBehaviour
         health.ChangeHealth(currentHealth);
         if (currentHealth == 0)
         {
-            Debug.Log("Gameover");
-            transform.position = spawnPoint.position;
-            currentHealth = maxHealth;
+            Respawn();
         }
         if (collision.gameObject.tag == "Orb")
         {
@@ -45,6 +51,20 @@ public class PlayerInteraction : MonoBehaviour
         if (numberOfOrbs == maxOrbs)
         {
             Debug.Log("Win");
+        }
+    }
+
+    void Respawn(){
+        Debug.Log("Gameover");
+        transform.position = spawnPoint.position;
+        NeedHealthRecovery = true;
+    }
+
+    void RespawnHeal(){
+        OnGround = Physics.CheckSphere(CheckGround.position, GroundRadius, (int)PlatformLM);
+        if(OnGround && NeedHealthRecovery){
+            currentHealth = maxHealth;
+            NeedHealthRecovery = false;
         }
     }
 
