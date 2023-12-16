@@ -58,7 +58,6 @@ GameObject:
   - component: {fileID: 3403441376985695599}
   - component: {fileID: 8047318214928722585}
   - component: {fileID: 6848735161610312932}
-  - component: {fileID: 7288036795560488773}
   - component: {fileID: 1626085999493046035}
   - component: {fileID: 2382702820881792311}
   - component: {fileID: 8489717531121888499}
@@ -134,29 +133,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &7288036795560488773
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7309175876301876287}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1626085999493046035
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -220,3 +196,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 2382702820881792311}
   playerLocation: {fileID: 0}
+  EnemyDamage: 0
+  DamageRate: 0

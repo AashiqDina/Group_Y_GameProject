@@ -2946,7 +2946,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1647468725699361933, guid: 9a2d84ceba581dd4daea1f420c4aa0e9, type: 3}
       propertyPath: JumpStrength
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2026427634337962901, guid: 9a2d84ceba581dd4daea1f420c4aa0e9, type: 3}
       propertyPath: m_LocalScale.x
@@ -3150,7 +3150,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2b9d32ccb0ed14b39838c669b752b305, type: 2}
     - target: {fileID: 7261406921335544133, guid: 9a2d84ceba581dd4daea1f420c4aa0e9, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7924724153222158027, guid: 9a2d84ceba581dd4daea1f420c4aa0e9, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -5134,6 +5134,28 @@ MonoBehaviour:
   EnemyHealthBar: {fileID: 1716073401}
   EnemyHealthSlider: {fileID: 1933381561}
   MaxHealth: 100
+  SwordCanHit: 0
+--- !u!65 &582539120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582539106}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0.00000011920929}
 --- !u!1 &598391973
 GameObject:
   m_ObjectHideFlags: 0
@@ -15957,13 +15979,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1829211790}
+  - component: {fileID: 1829211792}
+  - component: {fileID: 1829211791}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1829211790
 Transform:
   m_ObjectHideFlags: 0
@@ -15992,6 +16016,40 @@ Transform:
   - {fileID: 688386332}
   m_Father: {fileID: 54068095}
   m_LocalEulerAnglesHint: {x: 20, y: 0, z: 2}
+--- !u!114 &1829211791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829211789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d79b7101bf82f4e6da228557e1f1fbba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SwordDamage: 35
+--- !u!65 &1829211792
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829211789}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 20, z: 7}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1840246414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17129,6 +17187,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8489717531121888499, guid: 88f0ccd7a6d2108478d14acee0b3bf36, type: 3}
+      propertyPath: DamageRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489717531121888499, guid: 88f0ccd7a6d2108478d14acee0b3bf36, type: 3}
+      propertyPath: EnemyDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8489717531121888499, guid: 88f0ccd7a6d2108478d14acee0b3bf36, type: 3}
       propertyPath: playerLocation
       value: 
       objectReference: {fileID: 54068095}
@@ -17142,6 +17208,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7309175876301876287, guid: 88f0ccd7a6d2108478d14acee0b3bf36, type: 3}
       insertIndex: -1
       addedObject: {fileID: 582539114}
+    - targetCorrespondingSourceObject: {fileID: 7309175876301876287, guid: 88f0ccd7a6d2108478d14acee0b3bf36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 582539120}
   m_SourcePrefab: {fileID: 100100000, guid: 88f0ccd7a6d2108478d14acee0b3bf36, type: 3}
 --- !u!114 &1939551976 stripped
 MonoBehaviour:

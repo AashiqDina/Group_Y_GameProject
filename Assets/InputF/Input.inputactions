@@ -208,6 +208,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "SwordSwingAttack",
+            "id": "336f1adf-c78d-444a-88bf-383cea275502",
+            "actions": [
+                {
+                    "name": "ToAttack",
+                    "type": "Button",
+                    "id": "5df91b32-6378-4c76-a05d-be0e08270b01",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "433e4c27-8c9c-440c-a135-59a4c4929b1a",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

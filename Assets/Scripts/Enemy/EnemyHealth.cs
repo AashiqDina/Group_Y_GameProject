@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public float MaxHealth;
     private float CurrentHealth;
     private float BulletDamage;
+    public bool SwordCanHit = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,12 +31,19 @@ public class EnemyHealth : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collide){
-        if(collide.gameObject.tag == "Bullet"){
-            CurrentHealth -= BulletDamage;
+        if(collide.gameObject.tag == "Bullet" ){
+            TakeDamage(BulletDamage);
         }
     }
 
     private float UpdateEnemyHealth(){
         return CurrentHealth/MaxHealth;
+    }
+
+    public void TakeDamage(float Damage){
+        Debug.Log("Before" + CurrentHealth);
+        CurrentHealth -= Damage;
+        Debug.Log("After" + CurrentHealth);
+
     }
 }

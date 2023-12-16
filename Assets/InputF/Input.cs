@@ -230,6 +230,34 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""SwordSwingAttack"",
+            ""id"": ""336f1adf-c78d-444a-88bf-383cea275502"",
+            ""actions"": [
+                {
+                    ""name"": ""ToAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""5df91b32-6378-4c76-a05d-be0e08270b01"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""433e4c27-8c9c-440c-a135-59a4c4929b1a"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -247,6 +275,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
         // GunShoot
         m_GunShoot = asset.FindActionMap("GunShoot", throwIfNotFound: true);
         m_GunShoot_Shoot = m_GunShoot.FindAction("Shoot", throwIfNotFound: true);
+        // SwordSwingAttack
+        m_SwordSwingAttack = asset.FindActionMap("SwordSwingAttack", throwIfNotFound: true);
+        m_SwordSwingAttack_ToAttack = m_SwordSwingAttack.FindAction("ToAttack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -474,6 +505,52 @@ public partial class @Input: IInputActionCollection2, IDisposable
         }
     }
     public GunShootActions @GunShoot => new GunShootActions(this);
+
+    // SwordSwingAttack
+    private readonly InputActionMap m_SwordSwingAttack;
+    private List<ISwordSwingAttackActions> m_SwordSwingAttackActionsCallbackInterfaces = new List<ISwordSwingAttackActions>();
+    private readonly InputAction m_SwordSwingAttack_ToAttack;
+    public struct SwordSwingAttackActions
+    {
+        private @Input m_Wrapper;
+        public SwordSwingAttackActions(@Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ToAttack => m_Wrapper.m_SwordSwingAttack_ToAttack;
+        public InputActionMap Get() { return m_Wrapper.m_SwordSwingAttack; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SwordSwingAttackActions set) { return set.Get(); }
+        public void AddCallbacks(ISwordSwingAttackActions instance)
+        {
+            if (instance == null || m_Wrapper.m_SwordSwingAttackActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_SwordSwingAttackActionsCallbackInterfaces.Add(instance);
+            @ToAttack.started += instance.OnToAttack;
+            @ToAttack.performed += instance.OnToAttack;
+            @ToAttack.canceled += instance.OnToAttack;
+        }
+
+        private void UnregisterCallbacks(ISwordSwingAttackActions instance)
+        {
+            @ToAttack.started -= instance.OnToAttack;
+            @ToAttack.performed -= instance.OnToAttack;
+            @ToAttack.canceled -= instance.OnToAttack;
+        }
+
+        public void RemoveCallbacks(ISwordSwingAttackActions instance)
+        {
+            if (m_Wrapper.m_SwordSwingAttackActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(ISwordSwingAttackActions instance)
+        {
+            foreach (var item in m_Wrapper.m_SwordSwingAttackActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_SwordSwingAttackActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public SwordSwingAttackActions @SwordSwingAttack => new SwordSwingAttackActions(this);
     public interface IMovementActions
     {
         void OnMoveX(InputAction.CallbackContext context);
@@ -489,5 +566,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
     public interface IGunShootActions
     {
         void OnShoot(InputAction.CallbackContext context);
+    }
+    public interface ISwordSwingAttackActions
+    {
+        void OnToAttack(InputAction.CallbackContext context);
     }
 }

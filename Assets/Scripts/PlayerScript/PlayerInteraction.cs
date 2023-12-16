@@ -35,7 +35,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            currentHealth -= 1;
+            currentHealth -= collision.gameObject.GetComponent<EnemyMovement>().EnemyDamage;
         }
         health.ChangeHealth(currentHealth);
         if (currentHealth == 0)
