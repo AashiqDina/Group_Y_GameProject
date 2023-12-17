@@ -286,6 +286,134 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""QuickSwitch"",
+            ""id"": ""50f6a4b8-5ddc-4458-a28e-b5a7029d220e"",
+            ""actions"": [
+                {
+                    ""name"": ""SwitchOne"",
+                    ""type"": ""Button"",
+                    ""id"": ""4c577c39-ff1f-475d-9039-0a406940c0ee"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchTwo"",
+                    ""type"": ""Button"",
+                    ""id"": ""d285345d-3081-4e38-8868-718d68599d0c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchThree"",
+                    ""type"": ""Button"",
+                    ""id"": ""891c871f-69f7-4b20-9809-549b5ab00ec9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchFour"",
+                    ""type"": ""Button"",
+                    ""id"": ""2556f44d-9c08-48d4-8545-eb035f249d46"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchFive"",
+                    ""type"": ""Button"",
+                    ""id"": ""f6a5c942-8dcf-4df5-85da-f1582b2dfb53"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwitchSix"",
+                    ""type"": ""Button"",
+                    ""id"": ""6ca608e2-7d41-4908-acca-8a61850950ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""31ecce01-0422-4f0b-97a1-0f2fe389e74f"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchOne"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""daeea775-c564-4741-94a9-a5d18f617add"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchTwo"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2ec0e924-dc31-4c29-8a4c-a8d332b2d11d"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchThree"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""29c01f6e-8516-4e50-bb6d-4769e62b9467"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchFour"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f049672-1054-4259-b604-6dd89b93b164"",
+                    ""path"": ""<Keyboard>/6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchSix"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dd6302db-b399-494b-8d23-32932757dea3"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwitchFive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -309,6 +437,14 @@ public partial class @Input: IInputActionCollection2, IDisposable
         // Inventory
         m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
         m_Inventory_OpenCloseInventory = m_Inventory.FindAction("OpenCloseInventory", throwIfNotFound: true);
+        // QuickSwitch
+        m_QuickSwitch = asset.FindActionMap("QuickSwitch", throwIfNotFound: true);
+        m_QuickSwitch_SwitchOne = m_QuickSwitch.FindAction("SwitchOne", throwIfNotFound: true);
+        m_QuickSwitch_SwitchTwo = m_QuickSwitch.FindAction("SwitchTwo", throwIfNotFound: true);
+        m_QuickSwitch_SwitchThree = m_QuickSwitch.FindAction("SwitchThree", throwIfNotFound: true);
+        m_QuickSwitch_SwitchFour = m_QuickSwitch.FindAction("SwitchFour", throwIfNotFound: true);
+        m_QuickSwitch_SwitchFive = m_QuickSwitch.FindAction("SwitchFive", throwIfNotFound: true);
+        m_QuickSwitch_SwitchSix = m_QuickSwitch.FindAction("SwitchSix", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -628,6 +764,92 @@ public partial class @Input: IInputActionCollection2, IDisposable
         }
     }
     public InventoryActions @Inventory => new InventoryActions(this);
+
+    // QuickSwitch
+    private readonly InputActionMap m_QuickSwitch;
+    private List<IQuickSwitchActions> m_QuickSwitchActionsCallbackInterfaces = new List<IQuickSwitchActions>();
+    private readonly InputAction m_QuickSwitch_SwitchOne;
+    private readonly InputAction m_QuickSwitch_SwitchTwo;
+    private readonly InputAction m_QuickSwitch_SwitchThree;
+    private readonly InputAction m_QuickSwitch_SwitchFour;
+    private readonly InputAction m_QuickSwitch_SwitchFive;
+    private readonly InputAction m_QuickSwitch_SwitchSix;
+    public struct QuickSwitchActions
+    {
+        private @Input m_Wrapper;
+        public QuickSwitchActions(@Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @SwitchOne => m_Wrapper.m_QuickSwitch_SwitchOne;
+        public InputAction @SwitchTwo => m_Wrapper.m_QuickSwitch_SwitchTwo;
+        public InputAction @SwitchThree => m_Wrapper.m_QuickSwitch_SwitchThree;
+        public InputAction @SwitchFour => m_Wrapper.m_QuickSwitch_SwitchFour;
+        public InputAction @SwitchFive => m_Wrapper.m_QuickSwitch_SwitchFive;
+        public InputAction @SwitchSix => m_Wrapper.m_QuickSwitch_SwitchSix;
+        public InputActionMap Get() { return m_Wrapper.m_QuickSwitch; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(QuickSwitchActions set) { return set.Get(); }
+        public void AddCallbacks(IQuickSwitchActions instance)
+        {
+            if (instance == null || m_Wrapper.m_QuickSwitchActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_QuickSwitchActionsCallbackInterfaces.Add(instance);
+            @SwitchOne.started += instance.OnSwitchOne;
+            @SwitchOne.performed += instance.OnSwitchOne;
+            @SwitchOne.canceled += instance.OnSwitchOne;
+            @SwitchTwo.started += instance.OnSwitchTwo;
+            @SwitchTwo.performed += instance.OnSwitchTwo;
+            @SwitchTwo.canceled += instance.OnSwitchTwo;
+            @SwitchThree.started += instance.OnSwitchThree;
+            @SwitchThree.performed += instance.OnSwitchThree;
+            @SwitchThree.canceled += instance.OnSwitchThree;
+            @SwitchFour.started += instance.OnSwitchFour;
+            @SwitchFour.performed += instance.OnSwitchFour;
+            @SwitchFour.canceled += instance.OnSwitchFour;
+            @SwitchFive.started += instance.OnSwitchFive;
+            @SwitchFive.performed += instance.OnSwitchFive;
+            @SwitchFive.canceled += instance.OnSwitchFive;
+            @SwitchSix.started += instance.OnSwitchSix;
+            @SwitchSix.performed += instance.OnSwitchSix;
+            @SwitchSix.canceled += instance.OnSwitchSix;
+        }
+
+        private void UnregisterCallbacks(IQuickSwitchActions instance)
+        {
+            @SwitchOne.started -= instance.OnSwitchOne;
+            @SwitchOne.performed -= instance.OnSwitchOne;
+            @SwitchOne.canceled -= instance.OnSwitchOne;
+            @SwitchTwo.started -= instance.OnSwitchTwo;
+            @SwitchTwo.performed -= instance.OnSwitchTwo;
+            @SwitchTwo.canceled -= instance.OnSwitchTwo;
+            @SwitchThree.started -= instance.OnSwitchThree;
+            @SwitchThree.performed -= instance.OnSwitchThree;
+            @SwitchThree.canceled -= instance.OnSwitchThree;
+            @SwitchFour.started -= instance.OnSwitchFour;
+            @SwitchFour.performed -= instance.OnSwitchFour;
+            @SwitchFour.canceled -= instance.OnSwitchFour;
+            @SwitchFive.started -= instance.OnSwitchFive;
+            @SwitchFive.performed -= instance.OnSwitchFive;
+            @SwitchFive.canceled -= instance.OnSwitchFive;
+            @SwitchSix.started -= instance.OnSwitchSix;
+            @SwitchSix.performed -= instance.OnSwitchSix;
+            @SwitchSix.canceled -= instance.OnSwitchSix;
+        }
+
+        public void RemoveCallbacks(IQuickSwitchActions instance)
+        {
+            if (m_Wrapper.m_QuickSwitchActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IQuickSwitchActions instance)
+        {
+            foreach (var item in m_Wrapper.m_QuickSwitchActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_QuickSwitchActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public QuickSwitchActions @QuickSwitch => new QuickSwitchActions(this);
     public interface IMovementActions
     {
         void OnMoveX(InputAction.CallbackContext context);
@@ -651,5 +873,14 @@ public partial class @Input: IInputActionCollection2, IDisposable
     public interface IInventoryActions
     {
         void OnOpenCloseInventory(InputAction.CallbackContext context);
+    }
+    public interface IQuickSwitchActions
+    {
+        void OnSwitchOne(InputAction.CallbackContext context);
+        void OnSwitchTwo(InputAction.CallbackContext context);
+        void OnSwitchThree(InputAction.CallbackContext context);
+        void OnSwitchFour(InputAction.CallbackContext context);
+        void OnSwitchFive(InputAction.CallbackContext context);
+        void OnSwitchSix(InputAction.CallbackContext context);
     }
 }

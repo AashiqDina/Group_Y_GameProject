@@ -11,9 +11,11 @@ public class InvItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragH
 
     public Transform newParent;
     public Image img;
+
+    public string Item;
     void Start()
     {
-        
+        Item = img.sprite.name;
     }
 
     // Update is called once per frame

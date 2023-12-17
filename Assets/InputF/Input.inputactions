@@ -264,6 +264,134 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "QuickSwitch",
+            "id": "50f6a4b8-5ddc-4458-a28e-b5a7029d220e",
+            "actions": [
+                {
+                    "name": "SwitchOne",
+                    "type": "Button",
+                    "id": "4c577c39-ff1f-475d-9039-0a406940c0ee",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchTwo",
+                    "type": "Button",
+                    "id": "d285345d-3081-4e38-8868-718d68599d0c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchThree",
+                    "type": "Button",
+                    "id": "891c871f-69f7-4b20-9809-549b5ab00ec9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchFour",
+                    "type": "Button",
+                    "id": "2556f44d-9c08-48d4-8545-eb035f249d46",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchFive",
+                    "type": "Button",
+                    "id": "f6a5c942-8dcf-4df5-85da-f1582b2dfb53",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SwitchSix",
+                    "type": "Button",
+                    "id": "6ca608e2-7d41-4908-acca-8a61850950ad",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "31ecce01-0422-4f0b-97a1-0f2fe389e74f",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchOne",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "daeea775-c564-4741-94a9-a5d18f617add",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchTwo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2ec0e924-dc31-4c29-8a4c-a8d332b2d11d",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchThree",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "29c01f6e-8516-4e50-bb6d-4769e62b9467",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchFour",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f049672-1054-4259-b604-6dd89b93b164",
+                    "path": "<Keyboard>/6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchSix",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dd6302db-b399-494b-8d23-32932757dea3",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchFive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
