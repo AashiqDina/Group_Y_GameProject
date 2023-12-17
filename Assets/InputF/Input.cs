@@ -258,6 +258,34 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Inventory"",
+            ""id"": ""70bda24a-2456-4a6e-a3b4-f675d9c6de91"",
+            ""actions"": [
+                {
+                    ""name"": ""OpenCloseInventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""6f21f7ab-deae-40ca-988f-64b78384874d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""017f1be9-7414-40bd-b15c-984e1b4d8cec"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""OpenCloseInventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -278,6 +306,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
         // SwordSwingAttack
         m_SwordSwingAttack = asset.FindActionMap("SwordSwingAttack", throwIfNotFound: true);
         m_SwordSwingAttack_ToAttack = m_SwordSwingAttack.FindAction("ToAttack", throwIfNotFound: true);
+        // Inventory
+        m_Inventory = asset.FindActionMap("Inventory", throwIfNotFound: true);
+        m_Inventory_OpenCloseInventory = m_Inventory.FindAction("OpenCloseInventory", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -551,6 +582,52 @@ public partial class @Input: IInputActionCollection2, IDisposable
         }
     }
     public SwordSwingAttackActions @SwordSwingAttack => new SwordSwingAttackActions(this);
+
+    // Inventory
+    private readonly InputActionMap m_Inventory;
+    private List<IInventoryActions> m_InventoryActionsCallbackInterfaces = new List<IInventoryActions>();
+    private readonly InputAction m_Inventory_OpenCloseInventory;
+    public struct InventoryActions
+    {
+        private @Input m_Wrapper;
+        public InventoryActions(@Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @OpenCloseInventory => m_Wrapper.m_Inventory_OpenCloseInventory;
+        public InputActionMap Get() { return m_Wrapper.m_Inventory; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(InventoryActions set) { return set.Get(); }
+        public void AddCallbacks(IInventoryActions instance)
+        {
+            if (instance == null || m_Wrapper.m_InventoryActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_InventoryActionsCallbackInterfaces.Add(instance);
+            @OpenCloseInventory.started += instance.OnOpenCloseInventory;
+            @OpenCloseInventory.performed += instance.OnOpenCloseInventory;
+            @OpenCloseInventory.canceled += instance.OnOpenCloseInventory;
+        }
+
+        private void UnregisterCallbacks(IInventoryActions instance)
+        {
+            @OpenCloseInventory.started -= instance.OnOpenCloseInventory;
+            @OpenCloseInventory.performed -= instance.OnOpenCloseInventory;
+            @OpenCloseInventory.canceled -= instance.OnOpenCloseInventory;
+        }
+
+        public void RemoveCallbacks(IInventoryActions instance)
+        {
+            if (m_Wrapper.m_InventoryActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IInventoryActions instance)
+        {
+            foreach (var item in m_Wrapper.m_InventoryActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_InventoryActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public InventoryActions @Inventory => new InventoryActions(this);
     public interface IMovementActions
     {
         void OnMoveX(InputAction.CallbackContext context);
@@ -570,5 +647,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
     public interface ISwordSwingAttackActions
     {
         void OnToAttack(InputAction.CallbackContext context);
+    }
+    public interface IInventoryActions
+    {
+        void OnOpenCloseInventory(InputAction.CallbackContext context);
     }
 }
