@@ -24,6 +24,7 @@ public class PlayerInteraction : MonoBehaviour
         transform.position = spawnPoint.position;
         health.setMaxHealth(maxHealth);
         currentHealth = maxHealth;
+        numberOfOrbs = 0;
     }
 
     // Update is called once per frame
