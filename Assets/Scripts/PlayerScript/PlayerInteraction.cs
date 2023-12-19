@@ -8,8 +8,15 @@ public class PlayerInteraction : MonoBehaviour
     public int maxOrbs;
     private int currentHealth;
     private int numberOfOrbs = 0;
+    private int EnemiesKilled = 0;
+    private int PlayerScore = 0;
+    private string HealthStat;
+    private float LastCollected;
     public Heath health;
     public NumberOrbs numberOrbs;
+    public Stats score;
+    public Stats enemiesKilled;
+    public Stats CurrentHealthStat;
     public Transform spawnPoint;
     private bool NeedHealthRecovery = false;
     private bool OnGround = false;
@@ -25,6 +32,8 @@ public class PlayerInteraction : MonoBehaviour
         health.setMaxHealth(maxHealth);
         currentHealth = maxHealth;
         numberOfOrbs = 0;
+        HealthStat = currentHealth.ToString() + "/" + maxHealth.ToString();
+        CurrentHealthStat.updateHealthStat(HealthStat);
     }
 
     // Update is called once per frame
@@ -37,17 +46,21 @@ public class PlayerInteraction : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             currentHealth -= collision.gameObject.GetComponent<EnemyMovement>().EnemyDamage;
+            HealthStat = currentHealth.ToString() + "/" + maxHealth.ToString();
+            CurrentHealthStat.updateHealthStat(HealthStat);
         }
         health.ChangeHealth(currentHealth);
         if (currentHealth == 0)
         {
             Respawn();
         }
-        if (collision.gameObject.tag == "Orb")
+        if (collision.gameObject.tag == "Orb" && CanCollect())
         {
             Destroy(collision.gameObject);
             numberOfOrbs += 1;
             numberOrbs.changeText(numberOfOrbs);
+            PlayerScore += 500;
+            score.changeScore(PlayerScore);
         }
         if (numberOfOrbs == maxOrbs)
         {
@@ -66,7 +79,28 @@ public class PlayerInteraction : MonoBehaviour
         if(OnGround && NeedHealthRecovery){
             currentHealth = maxHealth;
             NeedHealthRecovery = false;
+            HealthStat = currentHealth.ToString() + "/" + maxHealth.ToString();
+            CurrentHealthStat.updateHealthStat(HealthStat);
         }
     }
 
+    bool CanCollect(){
+        if (Time.time - LastCollected > 0.1){
+            LastCollected = Time.time;
+            return true;
+        }
+        return false;
+    }
+
+    public int getEnemiesKilled(){
+        return EnemiesKilled;
+    }
+
+    public void alterEnemiesKilled(int newValue){
+        Debug.Log("Here");
+        EnemiesKilled = newValue;
+        enemiesKilled.changeEnemiesKilledText(EnemiesKilled);
+        PlayerScore += 100;
+        score.changeScore(PlayerScore);
+    }
 }

@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour
     public float MaxHealth;
     private float CurrentHealth;
     private float BulletDamage;
+    public PlayerInteraction Player;
     public bool SwordCanHit = false;
     // Start is called before the first frame update
     void Awake()
@@ -26,6 +27,7 @@ public class EnemyHealth : MonoBehaviour
         
         if(CurrentHealth <= 0){
             Destroy(gameObject);
+            Player.alterEnemiesKilled(Player.getEnemiesKilled() + 1);
         }
 
     }
