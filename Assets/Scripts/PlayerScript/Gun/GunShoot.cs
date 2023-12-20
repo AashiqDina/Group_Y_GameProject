@@ -13,6 +13,7 @@ public class GunShoot : MonoBehaviour
     public GameObject Bullet;
     public float BulletSpeed;
     private float LastShotTime;
+    private float LastUsed;
     public float FireRate;
     private float DistanceAway;
     public float GunRange;
@@ -47,8 +48,11 @@ public class GunShoot : MonoBehaviour
     }
 
     void PlayerShoot(){
+        EnableEffect();
         if(shoot.ReadValue<float>() > 0 && CanShoot()){
             Debug.Log("shoot");
+            LastUsed = Time.time;
+            EnableEffect();
             var bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation);
             if(PlayerRB.velocity.magnitude > 1 && PlayerRB.velocity.magnitude < 1000){
                 DistanceAway = Camera.GetComponent<CameraRaycast>().CheckDistance(GunRange);
@@ -62,6 +66,7 @@ public class GunShoot : MonoBehaviour
                 if(DistanceAway != 0){
                     bullet.transform.Rotate(0,(float)(360.0 - (90 - (Math.Atan(DistanceAway/1)*180/Math.PI))),0, Space.Self);
                 }
+                Debug.Log("angle: " + (float)(360.0 -(Math.Atan(DistanceAway/1)*180/Math.PI)) + ", DistanceAway: " + DistanceAway);
                 bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * BulletSpeed;
             }
         }
@@ -73,5 +78,16 @@ public class GunShoot : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    void EnableEffect(){
+        if(Time.time - LastUsed < 0.05){
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+        }
+        else{
+            gameObject.transform.GetChild(1).gameObject.SetActive(false);
+            gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.transform.Rotate(0,0,UnityEngine.Random.Range(0,45));
+
+        }
     }
 }
