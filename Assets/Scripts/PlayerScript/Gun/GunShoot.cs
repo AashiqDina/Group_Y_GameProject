@@ -52,12 +52,16 @@ public class GunShoot : MonoBehaviour
             var bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation);
             if(PlayerRB.velocity.magnitude > 1 && PlayerRB.velocity.magnitude < 1000){
                 DistanceAway = Camera.GetComponent<CameraRaycast>().CheckDistance(GunRange);
-                bullet.transform.Rotate(0,(float)(360.0 -(Math.Atan(DistanceAway/1)*180/Math.PI)),0, Space.Self);
-                Debug.Log((float)(360.0 -(Math.Atan(DistanceAway/1)*180/Math.PI)));
+                if(DistanceAway != 0){
+                    bullet.transform.Rotate(0,(float)(360.0 - (90 - (Math.Atan(DistanceAway/1)*180/Math.PI))),0, Space.Self);
+                }
+                Debug.Log("angle: " + (float)(360.0 -(Math.Atan(DistanceAway/1)*180/Math.PI)) + ", DistanceAway: " + DistanceAway);
                 bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * BulletSpeed + (PlayerRB.velocity.magnitude * PlayerRB.velocity.normalized);
             }
             else{
-                bullet.transform.Rotate(0,(float)(360.0 -(Math.Atan(DistanceAway/1)*180/Math.PI)),0, Space.Self);
+                if(DistanceAway != 0){
+                    bullet.transform.Rotate(0,(float)(360.0 - (90 - (Math.Atan(DistanceAway/1)*180/Math.PI))),0, Space.Self);
+                }
                 bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * BulletSpeed;
             }
         }
