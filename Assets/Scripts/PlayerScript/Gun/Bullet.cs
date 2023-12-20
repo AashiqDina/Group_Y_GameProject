@@ -6,6 +6,8 @@ public class Bullet : MonoBehaviour
 {
 
     private float BulletDamage;
+    private GameObject Player;
+    public GameObject Gun;
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,6 +21,7 @@ public class Bullet : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collide){
+
         Destroy(gameObject);
     }
 }
