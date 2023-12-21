@@ -392,6 +392,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "OpenChest",
+            "id": "96211ec4-149a-4669-b260-8619dbc42127",
+            "actions": [
+                {
+                    "name": "Open",
+                    "type": "Button",
+                    "id": "497e3d19-25a7-42a2-9055-09e88ea01bcf",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d8e271f8-2af8-4b19-b382-0fb5c6735b96",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Open",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

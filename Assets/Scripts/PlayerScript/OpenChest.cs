@@ -3,50 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Inventory : MonoBehaviour
+public class OpenChest : MonoBehaviour
 {
     private Input input;
-    private Input.InventoryActions TheInventory;
-    private InputAction OpenCloseInv;
+    private Input.OpenChestActions OpeningChest;
+    private InputAction Open;
+    public float PlayerChestRange;
+    private GameObject Camera;
     private GameObject InventoryObject;
     // Start is called before the first frame update
     void Awake()
     {
         input = new Input();
-        TheInventory = input.Inventory;
-        OpenCloseInv = TheInventory.OpenCloseInventory;
-        
+        OpeningChest = input.OpenChest;
+        Open = OpeningChest.Open;
+
+        Camera = GameObject.Find("Player").transform.GetChild(0).gameObject;
         InventoryObject = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
-        InventoryObject.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdateInventory();
+        OpeningTheChest();
     }
 
     private void OnEnable()
     {
-        TheInventory.Enable();
+        OpeningChest.Enable();
     }
 
-    void UpdateInventory(){
-        if (OpenCloseInv.triggered && OpenCloseInv.ReadValue<float>() > 0 && InventoryObject.activeSelf == false){
+    void OpeningTheChest(){
+        if(Camera.GetComponent<CameraRaycast>().GetObject(PlayerChestRange).tag == "Chest" && Open.triggered && Open.ReadValue<float>() > 0 && InventoryObject.activeSelf == false){
             InventoryObject.SetActive(true);
+            InventoryObject.transform.GetChild(0).gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             GameObject.Find("Player").transform.GetChild(0).gameObject.GetComponent<Look>().enabled = false;
             GameObject.Find("Player").gameObject.GetComponent<Movement>().enabled = false;
             GameObject.Find("Canvas").transform.GetChild(5).gameObject.SetActive(false);
-
         }
-        else if(OpenCloseInv.triggered && OpenCloseInv.ReadValue<float>() > 0 && InventoryObject.activeSelf == true){
+        else if(Camera.GetComponent<CameraRaycast>().GetObject(PlayerChestRange).tag == "Chest" && Open.triggered && Open.ReadValue<float>() > 0 && InventoryObject.activeSelf == true){
             InventoryObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             GameObject.Find("Player").transform.GetChild(0).gameObject.GetComponent<Look>().enabled = true;
             GameObject.Find("Player").gameObject.GetComponent<Movement>().enabled = true;
             GameObject.Find("Canvas").transform.GetChild(5).gameObject.SetActive(true);
-        
         }
     }
 }

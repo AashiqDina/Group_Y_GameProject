@@ -414,6 +414,34 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""OpenChest"",
+            ""id"": ""96211ec4-149a-4669-b260-8619dbc42127"",
+            ""actions"": [
+                {
+                    ""name"": ""Open"",
+                    ""type"": ""Button"",
+                    ""id"": ""497e3d19-25a7-42a2-9055-09e88ea01bcf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d8e271f8-2af8-4b19-b382-0fb5c6735b96"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Open"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -445,6 +473,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
         m_QuickSwitch_SwitchFour = m_QuickSwitch.FindAction("SwitchFour", throwIfNotFound: true);
         m_QuickSwitch_SwitchFive = m_QuickSwitch.FindAction("SwitchFive", throwIfNotFound: true);
         m_QuickSwitch_SwitchSix = m_QuickSwitch.FindAction("SwitchSix", throwIfNotFound: true);
+        // OpenChest
+        m_OpenChest = asset.FindActionMap("OpenChest", throwIfNotFound: true);
+        m_OpenChest_Open = m_OpenChest.FindAction("Open", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -850,6 +881,52 @@ public partial class @Input: IInputActionCollection2, IDisposable
         }
     }
     public QuickSwitchActions @QuickSwitch => new QuickSwitchActions(this);
+
+    // OpenChest
+    private readonly InputActionMap m_OpenChest;
+    private List<IOpenChestActions> m_OpenChestActionsCallbackInterfaces = new List<IOpenChestActions>();
+    private readonly InputAction m_OpenChest_Open;
+    public struct OpenChestActions
+    {
+        private @Input m_Wrapper;
+        public OpenChestActions(@Input wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Open => m_Wrapper.m_OpenChest_Open;
+        public InputActionMap Get() { return m_Wrapper.m_OpenChest; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(OpenChestActions set) { return set.Get(); }
+        public void AddCallbacks(IOpenChestActions instance)
+        {
+            if (instance == null || m_Wrapper.m_OpenChestActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_OpenChestActionsCallbackInterfaces.Add(instance);
+            @Open.started += instance.OnOpen;
+            @Open.performed += instance.OnOpen;
+            @Open.canceled += instance.OnOpen;
+        }
+
+        private void UnregisterCallbacks(IOpenChestActions instance)
+        {
+            @Open.started -= instance.OnOpen;
+            @Open.performed -= instance.OnOpen;
+            @Open.canceled -= instance.OnOpen;
+        }
+
+        public void RemoveCallbacks(IOpenChestActions instance)
+        {
+            if (m_Wrapper.m_OpenChestActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IOpenChestActions instance)
+        {
+            foreach (var item in m_Wrapper.m_OpenChestActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_OpenChestActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public OpenChestActions @OpenChest => new OpenChestActions(this);
     public interface IMovementActions
     {
         void OnMoveX(InputAction.CallbackContext context);
@@ -882,5 +959,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
         void OnSwitchFour(InputAction.CallbackContext context);
         void OnSwitchFive(InputAction.CallbackContext context);
         void OnSwitchSix(InputAction.CallbackContext context);
+    }
+    public interface IOpenChestActions
+    {
+        void OnOpen(InputAction.CallbackContext context);
     }
 }
