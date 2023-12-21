@@ -42,13 +42,16 @@ public class OpenChest : MonoBehaviour
             GameObject.Find("Player").transform.GetChild(0).gameObject.GetComponent<Look>().enabled = false;
             GameObject.Find("Player").gameObject.GetComponent<Movement>().enabled = false;
             GameObject.Find("Canvas").transform.GetChild(5).gameObject.SetActive(false);
+            Camera.GetComponent<CameraRaycast>().GetObject(PlayerChestRange).transform.GetChild(0).gameObject.SetActive(true);
         }
         else if(Camera.GetComponent<CameraRaycast>().GetObject(PlayerChestRange).tag == "Chest" && Open.triggered && Open.ReadValue<float>() > 0 && InventoryObject.activeSelf == true){
+            InventoryObject.transform.GetChild(0).gameObject.SetActive(true);
             InventoryObject.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             GameObject.Find("Player").transform.GetChild(0).gameObject.GetComponent<Look>().enabled = true;
             GameObject.Find("Player").gameObject.GetComponent<Movement>().enabled = true;
             GameObject.Find("Canvas").transform.GetChild(5).gameObject.SetActive(true);
+            Camera.GetComponent<CameraRaycast>().GetObject(PlayerChestRange).transform.GetChild(0).gameObject.SetActive(false);
         }
     }
 }

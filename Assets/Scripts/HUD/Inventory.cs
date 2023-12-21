@@ -9,6 +9,7 @@ public class Inventory : MonoBehaviour
     private Input.InventoryActions TheInventory;
     private InputAction OpenCloseInv;
     private GameObject InventoryObject;
+    private GameObject Camera;
     // Start is called before the first frame update
     void Awake()
     {
@@ -18,6 +19,8 @@ public class Inventory : MonoBehaviour
         
         InventoryObject = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
         InventoryObject.SetActive(false);
+        Camera = GameObject.Find("Player").transform.GetChild(0).gameObject;
+
     }
 
     // Update is called once per frame
@@ -46,7 +49,10 @@ public class Inventory : MonoBehaviour
             GameObject.Find("Player").transform.GetChild(0).gameObject.GetComponent<Look>().enabled = true;
             GameObject.Find("Player").gameObject.GetComponent<Movement>().enabled = true;
             GameObject.Find("Canvas").transform.GetChild(5).gameObject.SetActive(true);
-        
+            if(Camera.GetComponent<CameraRaycast>().GetObject(100).tag == "Chest"){
+                Camera.GetComponent<CameraRaycast>().GetObject(100).transform.GetChild(0).gameObject.SetActive(false);
+            }
+            InventoryObject.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 }
