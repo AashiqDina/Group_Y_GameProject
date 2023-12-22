@@ -11,6 +11,12 @@ public class OpenChest : MonoBehaviour
     public float PlayerChestRange;
     private GameObject Camera;
     private GameObject InventoryObject;
+    private GameObject ChestInv;
+    private GameObject Chest;
+    private bool IsOpen;
+    public int ChestInvUsed;
+    public int NewChestInvUsed;
+    public GameObject ChestInventory;
     // Start is called before the first frame update
     void Awake()
     {
@@ -20,6 +26,9 @@ public class OpenChest : MonoBehaviour
 
         Camera = GameObject.Find("Player").transform.GetChild(0).gameObject;
         InventoryObject = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
+        ChestInv = GameObject.Find("Canvas").transform.GetChild(6).gameObject;
+        IsOpen = false;
+        ChestInvUsed = 0;
 
     }
 
@@ -42,7 +51,15 @@ public class OpenChest : MonoBehaviour
             GameObject.Find("Player").transform.GetChild(0).gameObject.GetComponent<Look>().enabled = false;
             GameObject.Find("Player").gameObject.GetComponent<Movement>().enabled = false;
             GameObject.Find("Canvas").transform.GetChild(5).gameObject.SetActive(false);
-            Camera.GetComponent<CameraRaycast>().GetObject(PlayerChestRange).transform.GetChild(0).gameObject.SetActive(true);
+            GameObject.Find("Canvas").transform.GetChild(6).gameObject.SetActive(true);
+            GameObject.Find("Player").transform.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            Chest = Camera.GetComponent<CameraRaycast>().GetObject(PlayerChestRange);
+            if(!IsOpen){
+                if(Chest.transform.GetChild(0).gameObject.transform.childCount > 0){
+                    Chest.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.parent = ChestInventory.transform.GetChild(0).gameObject.transform;
+                    ChestInvUsed += 1;
+                }
+            }
         }
         else if(Camera.GetComponent<CameraRaycast>().GetObject(PlayerChestRange).tag == "Chest" && Open.triggered && Open.ReadValue<float>() > 0 && InventoryObject.activeSelf == true){
             InventoryObject.transform.GetChild(0).gameObject.SetActive(true);
@@ -51,7 +68,14 @@ public class OpenChest : MonoBehaviour
             GameObject.Find("Player").transform.GetChild(0).gameObject.GetComponent<Look>().enabled = true;
             GameObject.Find("Player").gameObject.GetComponent<Movement>().enabled = true;
             GameObject.Find("Canvas").transform.GetChild(5).gameObject.SetActive(true);
-            Camera.GetComponent<CameraRaycast>().GetObject(PlayerChestRange).transform.GetChild(0).gameObject.SetActive(false);
+            GameObject.Find("Canvas").transform.GetChild(6).gameObject.SetActive(false);
+                NewChestInvUsed = ChestInvUsed;
+                if((ChestInvUsed > 0) && (ChestInventory.transform.GetChild(0).gameObject.transform.childCount > 0)){
+                    ChestInventory.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.parent = Chest.transform.GetChild(0).gameObject.transform;
+                    NewChestInvUsed -= 1;
+                    }
+                ChestInvUsed = NewChestInvUsed;
+            
         }
     }
 }
