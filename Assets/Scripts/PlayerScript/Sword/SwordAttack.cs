@@ -9,6 +9,8 @@ public class SwordAttack : MonoBehaviour
     private Input.SwordSwingAttackActions swordAction;
     private InputAction attack;
     public float SwordDamage;
+    public float AttackRate;
+    private float LastHitTime;
     private bool CanAttack = false;
 
     // Start is called before the first frame update
@@ -40,8 +42,9 @@ public class SwordAttack : MonoBehaviour
      }
 
      void PermitAttack(){
-        if(attack.triggered && attack.ReadValue<float>() > 0){
+        if((attack.triggered) && (attack.ReadValue<float>() > 0) && (Time.time - LastHitTime > AttackRate)){
             CanAttack = true;
+            LastHitTime = Time.time;
         }
         else{ 
             CanAttack = false;

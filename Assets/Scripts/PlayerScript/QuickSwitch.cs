@@ -61,6 +61,10 @@ public class QuickSwitch : MonoBehaviour
                     GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.SetActive(true);
                     CurrentWeapon = GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(2).gameObject;
                 }
+                if(tempObject.GetComponent<InvItem>().Item == "Hammer"){
+                    GameObject.Find("Player").transform.GetChild(2).gameObject.SetActive(true);
+                    CurrentWeapon = GameObject.Find("Player").transform.GetChild(2).gameObject;
+                }
                 
             }
         if (Two.triggered && Two.ReadValue<float>() > 0){
@@ -82,6 +86,10 @@ public class QuickSwitch : MonoBehaviour
                     GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.SetActive(true);
                     CurrentWeapon = GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(2).gameObject;
                 }
+                if(tempObject.GetComponent<InvItem>().Item == "Hammer"){
+                    GameObject.Find("Player").transform.GetChild(2).gameObject.SetActive(true);
+                    CurrentWeapon = GameObject.Find("Player").transform.GetChild(2).gameObject;
+                }
         }
         if (Three.triggered && Three.ReadValue<float>() > 0){
                 CurrentWeapon.SetActive(false);
@@ -101,6 +109,10 @@ public class QuickSwitch : MonoBehaviour
                 else if(tempObject.GetComponent<InvItem>().Item == "Wand"){
                     GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.SetActive(true);
                     CurrentWeapon = GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(2).gameObject;
+                }
+                if(tempObject.GetComponent<InvItem>().Item == "Hammer"){
+                    GameObject.Find("Player").transform.GetChild(2).gameObject.SetActive(true);
+                    CurrentWeapon = GameObject.Find("Player").transform.GetChild(2).gameObject;
                 }
         }
         if (Four.triggered && Four.ReadValue<float>() > 0){
@@ -122,6 +134,10 @@ public class QuickSwitch : MonoBehaviour
                     GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.SetActive(true);
                     CurrentWeapon = GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(2).gameObject;
                 }
+                if(tempObject.GetComponent<InvItem>().Item == "Hammer"){
+                    GameObject.Find("Player").transform.GetChild(2).gameObject.SetActive(true);
+                    CurrentWeapon = GameObject.Find("Player").transform.GetChild(2).gameObject;
+                }
             }
         if (Five.triggered && Five.ReadValue<float>() > 0){
                 CurrentWeapon.SetActive(false);
@@ -142,6 +158,10 @@ public class QuickSwitch : MonoBehaviour
                     GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.SetActive(true);
                     CurrentWeapon = GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(2).gameObject;
                 }
+                if(tempObject.GetComponent<InvItem>().Item == "Hammer"){
+                    GameObject.Find("Player").transform.GetChild(2).gameObject.SetActive(true);
+                    CurrentWeapon = GameObject.Find("Player").transform.GetChild(2).gameObject;
+                }
             }   
         if (Six.triggered && Six.ReadValue<float>() > 0){
                 CurrentWeapon.SetActive(false);
@@ -161,6 +181,10 @@ public class QuickSwitch : MonoBehaviour
                 else if(tempObject.GetComponent<InvItem>().Item == "Wand"){
                     GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.SetActive(true);
                     CurrentWeapon = GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(2).gameObject;
+                }
+                if(tempObject.GetComponent<InvItem>().Item == "Hammer"){
+                    GameObject.Find("Player").transform.GetChild(2).gameObject.SetActive(true);
+                    CurrentWeapon = GameObject.Find("Player").transform.GetChild(2).gameObject;
                 }
             }
         

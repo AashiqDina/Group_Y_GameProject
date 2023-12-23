@@ -34,7 +34,7 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
             Player.alterEnemiesKilled(Player.getEnemiesKilled() + 1);
         }
-        Debug.Log("Heath" + CurrentHealth);
+
 
     }
 
