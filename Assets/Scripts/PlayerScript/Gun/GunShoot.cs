@@ -22,6 +22,7 @@ public class GunShoot : MonoBehaviour
     private Rigidbody PlayerRB;
     public float GunDamage;
     private GameObject Camera;
+    public bool hasEffects;
 
 
     // Start is called before the first frame update
@@ -55,6 +56,7 @@ public class GunShoot : MonoBehaviour
             EnableEffect();
             var bullet = Instantiate(Bullet, BulletSpawn.position, BulletSpawn.rotation);
             if(PlayerRB.velocity.magnitude > 1 && PlayerRB.velocity.magnitude < 1000){
+                Debug.Log("Can Shoot");
                 DistanceAway = Camera.GetComponent<CameraRaycast>().CheckDistance(GunRange);
                 if(DistanceAway != 0){
                     bullet.transform.Rotate(0,(float)(360.0 - (90 - (Math.Atan(DistanceAway/1)*180/Math.PI))),0, Space.Self);
@@ -85,8 +87,10 @@ public class GunShoot : MonoBehaviour
             gameObject.transform.GetChild(1).gameObject.SetActive(true);
         }
         else{
-            gameObject.transform.GetChild(1).gameObject.SetActive(false);
-            gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.transform.Rotate(0,0,UnityEngine.Random.Range(0,45));
+            if(hasEffects){
+                gameObject.transform.GetChild(1).gameObject.SetActive(false);
+                gameObject.transform.GetChild(1).gameObject.transform.GetChild(0).gameObject.transform.Rotate(0,0,UnityEngine.Random.Range(0,45));
+            }
 
         }
     }

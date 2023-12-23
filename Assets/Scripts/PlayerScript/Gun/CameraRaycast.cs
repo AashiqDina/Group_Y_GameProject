@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class CameraRaycast : MonoBehaviour
 {
-    private GameObject RayCastOut;
+    public GameObject RayCastOut;
     // Start is called before the first frame update
     void Start()
     {
-        RayCastOut = GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject;
     }
 
     // Update is called once per frame
@@ -27,6 +26,7 @@ public class CameraRaycast : MonoBehaviour
     public GameObject GetObject(float Distance){
         RaycastHit hit;
         Physics.Raycast(RayCastOut.transform.position, RayCastOut.transform.forward,out hit, Distance);
+        Debug.DrawRay(RayCastOut.transform.position, RayCastOut.transform.forward * Distance,Color.green, 100);
         if(hit.transform == null){
             return gameObject;
         }

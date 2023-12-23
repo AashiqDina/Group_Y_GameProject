@@ -9,6 +9,8 @@ TagManager:
   - Bullet
   - SwordHitBox
   - Chest
+  - BulletLaser
+  - BulletMagic
   layers:
   - Default
   - TransparentFX

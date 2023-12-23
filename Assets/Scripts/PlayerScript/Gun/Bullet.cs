@@ -5,8 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 
-    private float BulletDamage;
-    private GameObject Player;
+    public float BulletDamage;
     public GameObject Gun;
     // Start is called before the first frame update
     void Awake()

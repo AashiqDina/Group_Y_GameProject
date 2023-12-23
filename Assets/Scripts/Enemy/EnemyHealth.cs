@@ -11,6 +11,9 @@ public class EnemyHealth : MonoBehaviour
     public float MaxHealth;
     private float CurrentHealth;
     private float BulletDamage;
+    private float LaserDamage;
+    private float MagicDamage;
+
     public PlayerInteraction Player;
     public bool SwordCanHit = false;
     // Start is called before the first frame update
@@ -18,6 +21,8 @@ public class EnemyHealth : MonoBehaviour
     {
         CurrentHealth = MaxHealth;
         BulletDamage = GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.GetComponent<GunShoot>().GunDamage;
+        LaserDamage = GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.GetComponent<GunShoot>().GunDamage;
+        MagicDamage = GameObject.Find("Player").transform.GetChild(0).gameObject.transform.GetChild(2).gameObject.GetComponent<GunShoot>().GunDamage;
     }
 
     // Update is called once per frame
@@ -29,12 +34,19 @@ public class EnemyHealth : MonoBehaviour
             Destroy(gameObject);
             Player.alterEnemiesKilled(Player.getEnemiesKilled() + 1);
         }
+        Debug.Log("Heath" + CurrentHealth);
 
     }
 
     private void OnCollisionEnter(Collision collide){
         if(collide.gameObject.tag == "Bullet" ){
             TakeDamage(BulletDamage);
+        }
+        else if(collide.gameObject.tag == "BulletLaser"){
+            TakeDamage(LaserDamage);
+        }
+        else if(collide.gameObject.tag == "BulletMagic"){
+            TakeDamage(MagicDamage);
         }
     }
 
