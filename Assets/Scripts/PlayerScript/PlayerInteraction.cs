@@ -17,7 +17,7 @@ public class PlayerInteraction : MonoBehaviour
     public Stats score;
     public Stats enemiesKilled;
     public Stats CurrentHealthStat;
-    public Transform spawnPoint;
+    public List<Transform> spawnPoint;
     private bool NeedHealthRecovery = false;
     private bool OnGround = false;
     
@@ -28,7 +28,7 @@ public class PlayerInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        transform.position = spawnPoint.position;
+        transform.position = spawnPoint[0].position;
         health.setMaxHealth(maxHealth);
         currentHealth = maxHealth;
         numberOfOrbs = 0;
@@ -61,6 +61,9 @@ public class PlayerInteraction : MonoBehaviour
             numberOrbs.changeText(numberOfOrbs);
             PlayerScore += 500;
             score.changeScore(PlayerScore);
+            transform.position = spawnPoint[numberOfOrbs].position;
+
+
         }
         if (numberOfOrbs == maxOrbs)
         {
@@ -70,7 +73,7 @@ public class PlayerInteraction : MonoBehaviour
 
     void Respawn(){
         Debug.Log("Gameover");
-        transform.position = spawnPoint.position;
+        transform.position = spawnPoint[numberOfOrbs].position;
         NeedHealthRecovery = true;
     }
 
