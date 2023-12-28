@@ -20,7 +20,10 @@ public class PlayerInteraction : MonoBehaviour
     public List<Transform> spawnPoint;
     private bool NeedHealthRecovery = false;
     private bool OnGround = false;
-    
+
+
+    [SerializeField] private GameObject Boss;
+
     [SerializeField] private Transform CheckGround;
     [SerializeField] private float GroundRadius;
     [SerializeField] private LayerMask PlatformLM;
@@ -63,7 +66,10 @@ public class PlayerInteraction : MonoBehaviour
             score.changeScore(PlayerScore);
             transform.position = spawnPoint[numberOfOrbs].position;
 
-
+            if(numberOfOrbs == 4)
+            {
+                Boss.GetComponent<Animator>().SetBool("enterIdle", true);
+            }
         }
         if (numberOfOrbs == maxOrbs)
         {
