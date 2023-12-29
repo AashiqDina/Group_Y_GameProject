@@ -7255,7 +7255,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2ac09d97ff8c74605add64d75489554b, type: 2}
+  - {fileID: 2100000, guid: 20acb0b75e0a7944c9c3dc5f92b76d90, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -25282,8 +25282,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1205031388}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -10.84, y: 2.6399999, z: -407.21}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 853, y: 217, z: 309}
   m_LocalScale: {x: 2.6000001, y: 3.2, z: 4.400001}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25299,7 +25299,7 @@ Transform:
   - {fileID: 1069893624}
   - {fileID: 1089848922}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1213919813
 GameObject:
   m_ObjectHideFlags: 0
@@ -31442,8 +31442,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550389915}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -20.63, y: 2.6399999, z: -407.21}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -353, y: 2.6399999, z: 182}
   m_LocalScale: {x: 2.6000001, y: 3.2, z: 4.400001}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37515,8 +37515,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878402017}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -15.71, y: 2.6399999, z: -407.21}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -625, y: 2.6399999, z: -407}
   m_LocalScale: {x: 2.6000001, y: 3.2, z: 4.400001}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -37532,7 +37532,7 @@ Transform:
   - {fileID: 797740232}
   - {fileID: 396781825}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &1879407181
 GameObject:
   m_ObjectHideFlags: 0
@@ -37561,7 +37561,7 @@ Transform:
   m_GameObject: {fileID: 1879407181}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -30, y: 457, z: -149}
+  m_LocalPosition: {x: -28.3, y: 457, z: -149}
   m_LocalScale: {x: 10, y: 2000, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
