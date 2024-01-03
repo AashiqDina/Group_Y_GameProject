@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3224,6 +3224,7 @@ GameObject:
   - component: {fileID: 136566022}
   - component: {fileID: 136566024}
   - component: {fileID: 136566023}
+  - component: {fileID: 136566025}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
@@ -3271,6 +3272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwordDamage: 100
   AttackRate: 3
+  Weapon: {fileID: 136566021}
 --- !u!65 &136566024
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3292,6 +3294,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5, y: 4, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &136566025
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136566021}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ff58f63bc4172e440ac6c726cdec697b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &138631524
 GameObject:
   m_ObjectHideFlags: 0
@@ -4851,7 +4875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4233137727083320921, guid: 351b3cfdfa46dd742b38d02c0ec328a2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -76.131
+      value: -76.1311
       objectReference: {fileID: 0}
     - target: {fileID: 4427581986263131899, guid: 351b3cfdfa46dd742b38d02c0ec328a2, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -18919,6 +18943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SwordDamage: 10
   AttackRate: 0
+  Weapon: {fileID: 0}
 --- !u!1 &921673274
 GameObject:
   m_ObjectHideFlags: 0
@@ -34351,6 +34376,7 @@ GameObject:
   - component: {fileID: 1829211790}
   - component: {fileID: 1829211792}
   - component: {fileID: 1829211791}
+  - component: {fileID: 1829211793}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -34399,7 +34425,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SwordDamage: 35
-  AttackRate: 0.5
+  AttackRate: 0
+  Weapon: {fileID: 1829211789}
 --- !u!65 &1829211792
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34421,6 +34448,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 20, z: 7}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1829211793
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829211789}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c83d79878e344547ac19c739cf635b6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1840246414
 PrefabInstance:
   m_ObjectHideFlags: 0
