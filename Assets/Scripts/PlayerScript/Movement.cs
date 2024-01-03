@@ -51,6 +51,12 @@ public class Movement : MonoBehaviour
         movement.Enable();
     }
 
+    private void OnDisable()
+    {
+        movement.Disable();
+    }
+
+
     void PlayerMove(){
         float RunSpeed = 2 * BaseSpeed;
         float currentSpeed;

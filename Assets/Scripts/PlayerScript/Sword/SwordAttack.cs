@@ -12,6 +12,8 @@ public class SwordAttack : MonoBehaviour
     public float AttackRate;
     private float LastHitTime;
     private bool CanAttack = false;
+    [SerializeField] private GameObject Weapon;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -24,15 +26,23 @@ public class SwordAttack : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        PermitAttack();
+
     }
+
+
 
     private void OnEnable()
     {
-        swordAction.Enable();
+        attack.Enable();
+        attack.performed += Attack;
     }
 
-     void OnTriggerStay(Collider collision){
+    private void OnDisable()
+    {
+        attack.Disable();
+    }
+
+    void OnTriggerStay(Collider collision){
         if(collision.gameObject.tag == "Enemy" && CanAttack){
             Debug.Log("Before: " + CanAttack);
             collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(SwordDamage);
@@ -41,9 +51,12 @@ public class SwordAttack : MonoBehaviour
         }
      }
 
-     void PermitAttack(){
-        if((attack.triggered) && (attack.ReadValue<float>() > 0) && (Time.time - LastHitTime > AttackRate)){
+     void Attack(InputAction.CallbackContext context){
+        Debug.Log("Attack");
+        
+        if ((attack.ReadValue<float>() > 0) && (Time.time - LastHitTime > AttackRate)){
             CanAttack = true;
+            Weapon.GetComponent<Animator>().SetTrigger("Swing");
             LastHitTime = Time.time;
         }
         else{ 
