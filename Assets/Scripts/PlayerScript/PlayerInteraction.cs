@@ -21,9 +21,8 @@ public class PlayerInteraction : MonoBehaviour
     private bool NeedHealthRecovery = false;
     private bool OnGround = false;
 
-
+    public CreateEnemies createEnemies;
     [SerializeField] private GameObject Boss;
-
     [SerializeField] private Transform CheckGround;
     [SerializeField] private float GroundRadius;
     [SerializeField] private LayerMask PlatformLM;
@@ -48,12 +47,14 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            currentHealth -= collision.gameObject.GetComponent<EnemyMovement>().EnemyDamage;
+            currentHealth -= collision.gameObject.GetComponent<EnemyDamage>().enemydamage;
             HealthStat = currentHealth.ToString() + "/" + maxHealth.ToString();
             CurrentHealthStat.updateHealthStat(HealthStat);
         }
+        
+
         health.ChangeHealth(currentHealth);
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             Respawn();
         }
@@ -65,10 +66,14 @@ public class PlayerInteraction : MonoBehaviour
             PlayerScore += 500;
             score.changeScore(PlayerScore);
             transform.position = spawnPoint[numberOfOrbs].position;
+            if(numberOfOrbs == 1)
+            {
+                createEnemies.StartSpawn();
+            }
 
             if(numberOfOrbs == 4)
             {
-                Boss.GetComponent<Animator>().SetBool("enterIdle", true);
+                Boss.GetComponent<Animator>().SetTrigger("enterIdle");
             }
         }
         if (numberOfOrbs == maxOrbs)
@@ -81,6 +86,7 @@ public class PlayerInteraction : MonoBehaviour
         Debug.Log("Gameover");
         transform.position = spawnPoint[numberOfOrbs].position;
         NeedHealthRecovery = true;
+        Boss.GetComponent<Boss>().restart();
     }
 
     void RespawnHeal(){
