@@ -8565,6 +8565,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7952242983429338027, guid: 121709027e941477a9264afe6766d3d8, type: 3}
+      propertyPath: GunDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7952242983429338027, guid: 121709027e941477a9264afe6766d3d8, type: 3}
       propertyPath: BulletSpeed
       value: 100
       objectReference: {fileID: 0}
