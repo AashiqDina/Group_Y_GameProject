@@ -12,6 +12,8 @@ public class Inventory : MonoBehaviour
     private GameObject Camera;
     private GameObject Chest;
     public GameObject ChestInventory;
+    public GameObject CurrentWeapon;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -23,6 +25,8 @@ public class Inventory : MonoBehaviour
         InventoryObject = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
         InventoryObject.SetActive(false);
         Camera = GameObject.Find("Player").transform.GetChild(0).gameObject;
+        CurrentWeapon = GameObject.Find("Player").gameObject.GetComponent<QuickSwitch>().CurrentWeapon;
+
 
     }
 
@@ -53,8 +57,10 @@ public class Inventory : MonoBehaviour
             GameObject.Find("Player").gameObject.GetComponent<Movement>().enabled = true;
             GameObject.Find("Canvas").transform.GetChild(5).gameObject.SetActive(true);
 
-            if(Camera.GetComponent<CameraRaycast>().GetObject(100).tag == "Chest"){
+            if(Camera.GetComponent<CameraRaycast>().GetObject(100).tag == "Chest" || GameObject.Find("Canvas").transform.GetChild(6).gameObject.activeSelf == true){
                 GameObject.Find("Canvas").transform.GetChild(6).gameObject.SetActive(false);
+                CurrentWeapon = GameObject.Find("Player").gameObject.GetComponent<QuickSwitch>().CurrentWeapon;
+                CurrentWeapon.SetActive(true);
                 Chest = Camera.GetComponent<CameraRaycast>().GetObject(GameObject.Find("Player").transform.gameObject.GetComponent<OpenChest>().PlayerChestRange);
                 GameObject.Find("Player").transform.gameObject.GetComponent<OpenChest>().NewChestInvUsed = GameObject.Find("Player").transform.gameObject.GetComponent<OpenChest>().ChestInvUsed;
                 if((ChestInventory.transform.GetChild(0).gameObject.transform.childCount > 0)){

@@ -13,7 +13,7 @@ public class QuickSwitch : MonoBehaviour
     private InputAction Four;
     private InputAction Five;
     private InputAction Six;
-    private GameObject CurrentWeapon;
+    public GameObject CurrentWeapon;
     private GameObject tempObject;
 
     // Start is called before the first frame update
