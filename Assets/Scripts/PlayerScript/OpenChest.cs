@@ -16,6 +16,7 @@ public class OpenChest : MonoBehaviour
     public int ChestInvUsed;
     public int NewChestInvUsed;
     public GameObject ChestInventory;
+    public GameObject CurrentWeapon;
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,6 +28,7 @@ public class OpenChest : MonoBehaviour
         InventoryObject = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
         ChestInv = GameObject.Find("Canvas").transform.GetChild(6).gameObject;
         ChestInvUsed = 0;
+        CurrentWeapon = GameObject.Find("Player").gameObject.GetComponent<QuickSwitch>().CurrentWeapon;
 
     }
 
@@ -43,7 +45,8 @@ public class OpenChest : MonoBehaviour
 
     void OpeningTheChest(){
         if(Camera.GetComponent<CameraRaycast>().GetObject(PlayerChestRange).tag == "Chest" && Open.triggered && Open.ReadValue<float>() > 0 && InventoryObject.activeSelf == false){
-            Debug.Log("ChestInv1: " + ChestInvUsed);
+            CurrentWeapon = GameObject.Find("Player").gameObject.GetComponent<QuickSwitch>().CurrentWeapon;
+            CurrentWeapon.SetActive(false);
             InventoryObject.SetActive(true);
             InventoryObject.transform.GetChild(0).gameObject.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
@@ -63,6 +66,7 @@ public class OpenChest : MonoBehaviour
             Debug.Log("Here 2");
             InventoryObject.transform.GetChild(0).gameObject.SetActive(true);
             InventoryObject.SetActive(false);
+            CurrentWeapon.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
             GameObject.Find("Player").transform.GetChild(0).gameObject.GetComponent<Look>().enabled = true;
             GameObject.Find("Player").gameObject.GetComponent<Movement>().enabled = true;

@@ -7193,7 +7193,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50.000114, y: -125.00006}
+  m_AnchoredPosition: {x: 50, y: -125.00006}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &349560844
@@ -21746,6 +21746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChestInventory: {fileID: 193011678}
+  CurrentWeapon: {fileID: 0}
 --- !u!114 &1064112039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21758,6 +21759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a557a2ddb8e49cdbb48cf986e492a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentWeapon: {fileID: 0}
 --- !u!114 &1064112040 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8533524024576593573, guid: 9a2d84ceba581dd4daea1f420c4aa0e9, type: 3}
@@ -21785,6 +21787,7 @@ MonoBehaviour:
   ChestInvUsed: 0
   NewChestInvUsed: 0
   ChestInventory: {fileID: 193011678}
+  CurrentWeapon: {fileID: 0}
 --- !u!1 &1068981811
 GameObject:
   m_ObjectHideFlags: 0
