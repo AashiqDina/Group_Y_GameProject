@@ -11,17 +11,18 @@ public class PlayerInteraction : MonoBehaviour
     private int EnemiesKilled = 0;
     private int PlayerScore = 0;
     private string HealthStat;
-    private float LastCollected;
     public Heath health;
     public NumberOrbs numberOrbs;
     public Stats score;
     public Stats enemiesKilled;
     public Stats CurrentHealthStat;
-    public List<Transform> spawnPoint;
+    public Transform CurrentSpawnPoint;
+
     private bool NeedHealthRecovery = false;
     private bool OnGround = false;
 
     public CreateEnemies createEnemies;
+    
     [SerializeField] private GameObject Boss;
     [SerializeField] private Transform CheckGround;
     [SerializeField] private float GroundRadius;
@@ -30,7 +31,7 @@ public class PlayerInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        transform.position = spawnPoint[0].position;
+        transform.position = CurrentSpawnPoint.position;
         health.setMaxHealth(maxHealth);
         currentHealth = maxHealth;
         numberOfOrbs = 0;
@@ -52,39 +53,16 @@ public class PlayerInteraction : MonoBehaviour
             CurrentHealthStat.updateHealthStat(HealthStat);
         }
         
-
         health.ChangeHealth(currentHealth);
         if (currentHealth <= 0)
         {
             Respawn();
         }
-        if (collision.gameObject.tag == "Orb" && CanCollect())
-        {
-            Destroy(collision.gameObject);
-            numberOfOrbs += 1;
-            numberOrbs.changeText(numberOfOrbs);
-            PlayerScore += 500;
-            score.changeScore(PlayerScore);
-            transform.position = spawnPoint[numberOfOrbs].position;
-            if(numberOfOrbs == 1)
-            {
-                createEnemies.StartSpawn();
-            }
-
-            if(numberOfOrbs == 4)
-            {
-                Boss.GetComponent<Animator>().SetTrigger("enterIdle");
-            }
-        }
-        if (numberOfOrbs == maxOrbs)
-        {
-            Debug.Log("Win");
-        }
     }
 
     void Respawn(){
         Debug.Log("Gameover");
-        transform.position = spawnPoint[numberOfOrbs].position;
+        transform.position = CurrentSpawnPoint.position;
         NeedHealthRecovery = true;
         Boss.GetComponent<Boss>().restart();
     }
@@ -98,13 +76,20 @@ public class PlayerInteraction : MonoBehaviour
             CurrentHealthStat.updateHealthStat(HealthStat);
         }
     }
-
-    bool CanCollect(){
-        if (Time.time - LastCollected > 0.1){
-            LastCollected = Time.time;
-            return true;
+    public void getOrb(int orbGained)
+    {
+        numberOfOrbs += orbGained;
+        numberOrbs.changeText(numberOfOrbs);
+        PlayerScore += 500;
+        score.changeScore(PlayerScore);
+        if (numberOfOrbs == 1)
+        {
+            createEnemies.StartSpawn();
         }
-        return false;
+        if (numberOfOrbs == 4)
+        {
+            Boss.GetComponent<Animator>().SetTrigger("enterIdle");
+        }
     }
 
     public int getEnemiesKilled(){
