@@ -86,6 +86,10 @@ public class PlayerInteraction : MonoBehaviour
         {
             createEnemies.StartSpawn();
         }
+        else
+        {
+            createEnemies.SelfDestruct();
+        }
         if (numberOfOrbs == 4)
         {
             Boss.GetComponent<Animator>().SetTrigger("enterIdle");
