@@ -455,6 +455,15 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""8419d431-3c55-48f1-9f45-45d0bd490514"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -466,6 +475,17 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f57d889-c090-4bbf-bbe8-d665182112fe"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reset"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -507,6 +527,7 @@ public partial class @Input: IInputActionCollection2, IDisposable
         // Pause
         m_Pause = asset.FindActionMap("Pause", throwIfNotFound: true);
         m_Pause_Pause = m_Pause.FindAction("Pause", throwIfNotFound: true);
+        m_Pause_Reset = m_Pause.FindAction("Reset", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -963,11 +984,13 @@ public partial class @Input: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Pause;
     private List<IPauseActions> m_PauseActionsCallbackInterfaces = new List<IPauseActions>();
     private readonly InputAction m_Pause_Pause;
+    private readonly InputAction m_Pause_Reset;
     public struct PauseActions
     {
         private @Input m_Wrapper;
         public PauseActions(@Input wrapper) { m_Wrapper = wrapper; }
         public InputAction @Pause => m_Wrapper.m_Pause_Pause;
+        public InputAction @Reset => m_Wrapper.m_Pause_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Pause; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -980,6 +1003,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @Reset.started += instance.OnReset;
+            @Reset.performed += instance.OnReset;
+            @Reset.canceled += instance.OnReset;
         }
 
         private void UnregisterCallbacks(IPauseActions instance)
@@ -987,6 +1013,9 @@ public partial class @Input: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @Reset.started -= instance.OnReset;
+            @Reset.performed -= instance.OnReset;
+            @Reset.canceled -= instance.OnReset;
         }
 
         public void RemoveCallbacks(IPauseActions instance)
@@ -1044,5 +1073,6 @@ public partial class @Input: IInputActionCollection2, IDisposable
     public interface IPauseActions
     {
         void OnPause(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
 }
