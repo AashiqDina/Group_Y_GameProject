@@ -85,18 +85,8 @@ public class GameTimer : MonoBehaviour
 
     private void RecordTime()
 {
-    // Example: Displaying the time on the screen
-    // This requires a separate UI Text element to show the completed time.
-    // Assume you have a public Text variable named 'completedTimeText'
     completedTimeText.text = "Completed in: " + elapsedTime.ToString("F2") + " seconds";
-
-    // Example: Logging the time to the Unity Console
     Debug.Log("Level completed in: " + elapsedTime.ToString("F2") + " seconds");
-
-    // Additional implementations might include:
-    // - Saving the time to a file
-    // - Posting the time to a leaderboard
-    // - Storing the time in PlayerPrefs for later retrieval
 }
 
 }
