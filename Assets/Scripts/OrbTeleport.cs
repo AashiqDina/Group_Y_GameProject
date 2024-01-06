@@ -7,6 +7,8 @@ public class OrbTeleport : MonoBehaviour
     private bool collisonOccured = false;
     public Transform teleportTo;
     public int orbGained = 1;
+    private GameTimer gameTimer;
+
     // Start is called before the first frame update
     private void OnCollisionExit(Collision collision)
     {
