@@ -62,6 +62,7 @@ public class Inventory : MonoBehaviour
                 CurrentWeapon = GameObject.Find("Player").gameObject.GetComponent<QuickSwitch>().CurrentWeapon;
                 CurrentWeapon.SetActive(true);
                 Chest = Camera.GetComponent<CameraRaycast>().GetObject(GameObject.Find("Player").transform.gameObject.GetComponent<OpenChest>().PlayerChestRange);
+                Chest.transform.GetChild(1).gameObject.GetComponent<Animator>().SetBool("Open", false);
                 GameObject.Find("Player").transform.gameObject.GetComponent<OpenChest>().NewChestInvUsed = GameObject.Find("Player").transform.gameObject.GetComponent<OpenChest>().ChestInvUsed;
                 if((ChestInventory.transform.GetChild(0).gameObject.transform.childCount > 0)){
                     ChestInventory.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.parent = Chest.transform.GetChild(0).gameObject.transform;

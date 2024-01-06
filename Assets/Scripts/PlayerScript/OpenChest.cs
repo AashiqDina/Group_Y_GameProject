@@ -56,7 +56,8 @@ public class OpenChest : MonoBehaviour
             GameObject.Find("Canvas").transform.GetChild(6).gameObject.SetActive(true);
             GameObject.Find("Player").transform.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             Chest = Camera.GetComponent<CameraRaycast>().GetObject(PlayerChestRange);
-            if(Chest.transform.GetChild(0).gameObject.transform.childCount > 0){
+            Chest.transform.GetChild(1).gameObject.GetComponent<Animator>().SetBool("Open", true);
+            if (Chest.transform.GetChild(0).gameObject.transform.childCount > 0){
                 Chest.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.parent = ChestInventory.transform.GetChild(0).gameObject.transform;
                 ChestInvUsed += 1;
             }
@@ -69,6 +70,7 @@ public class OpenChest : MonoBehaviour
             CurrentWeapon.SetActive(true);
             Cursor.lockState = CursorLockMode.Locked;
             GameObject.Find("Player").transform.GetChild(0).gameObject.GetComponent<Look>().enabled = true;
+            Chest.transform.GetChild(1).gameObject.GetComponent<Animator>().SetBool("Open", false);
             GameObject.Find("Player").gameObject.GetComponent<Movement>().enabled = true;
             GameObject.Find("Canvas").transform.GetChild(5).gameObject.SetActive(true);
             GameObject.Find("Canvas").transform.GetChild(6).gameObject.SetActive(false);
