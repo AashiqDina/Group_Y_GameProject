@@ -7,26 +7,34 @@ KEY STROKE
 
 PURPOSE 
 
-W 
+W - Move forward 
 
-Move forward 
+A - Move Left 
 
-A 
+S - Move Backwards 
 
-Move Left 
+D - Move Right 
 
-S 
+SPACEBAR - Jump (hold to jump higher)
 
-Move Backwards 
+MOUSE - Move Camera 
 
-D 
+SHIFT - Sprint
 
-Move Right 
+E - Inventory and Stats menu/ Exit Chests
 
-SPACEBAR 
+Right Click - Interact with Chests
 
-Jump 
+Hold Left Click - Pick up items in chest and inventory
 
-MOUSE 
+Hold Left Click and Drag - Move items around in the chest (let go to release)
 
-Move Camera 
+1 2 3 4 5 6 - Quick switch between weapons in the hot slots
+
+P - pause
+
+R - Reset in the pause menu
+
+-/_ - Lower difficulty in the start screen
+
++/= - Increase difficulty in the start screen
