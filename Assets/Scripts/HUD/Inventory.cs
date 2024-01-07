@@ -52,6 +52,12 @@ public class Inventory : MonoBehaviour
         }
         else if(OpenCloseInv.triggered && OpenCloseInv.ReadValue<float>() > 0 && InventoryObject.activeSelf == true){
             InventoryObject.SetActive(false);
+            GameObject[] allchest = GameObject.FindGameObjectsWithTag("Chest");                
+            foreach(GameObject a in allchest)
+            {
+                a.transform.GetChild(1).gameObject.GetComponent<Animator>().SetBool("Open", false);
+            }
+            //.transform.GetChild(1).gameObject.GetComponent<Animator>().SetBool("Open", false);
             Cursor.lockState = CursorLockMode.Locked;
             GameObject.Find("Player").transform.GetChild(0).gameObject.GetComponent<Look>().enabled = true;
             GameObject.Find("Player").gameObject.GetComponent<Movement>().enabled = true;
@@ -62,7 +68,6 @@ public class Inventory : MonoBehaviour
                 CurrentWeapon = GameObject.Find("Player").gameObject.GetComponent<QuickSwitch>().CurrentWeapon;
                 CurrentWeapon.SetActive(true);
                 Chest = Camera.GetComponent<CameraRaycast>().GetObject(GameObject.Find("Player").transform.gameObject.GetComponent<OpenChest>().PlayerChestRange);
-                Chest.transform.GetChild(1).gameObject.GetComponent<Animator>().SetBool("Open", false);
                 GameObject.Find("Player").transform.gameObject.GetComponent<OpenChest>().NewChestInvUsed = GameObject.Find("Player").transform.gameObject.GetComponent<OpenChest>().ChestInvUsed;
                 if((ChestInventory.transform.GetChild(0).gameObject.transform.childCount > 0)){
                     ChestInventory.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.parent = Chest.transform.GetChild(0).gameObject.transform;
