@@ -36,16 +36,32 @@ public class GameTimer : MonoBehaviour
     {
         timerActive = false;
         elapsedTime = Time.time - startTime;
-        completedTimeText.text = elapsedTime.ToString("F2");
+
+        if (completedTimeText != null)
+        {
+            completedTimeText.text = elapsedTime.ToString("F2");
+        }
+        else
+        {
+            Debug.LogWarning("completedTimeText not assigned in GameTimer");
+        }
+
         RecordTime();
     }
 
+
     private void RecordTime()
     {
-        //string timeString = "Completed in: " + elapsedTime.ToString("F2") + " seconds";
-        //completedTimeText.text = timeString; // Existing UI
-        endScreenTimeText.text = completedTimeText.text;
+        if (endScreenTimeText != null)
+        {
+            endScreenTimeText.text = completedTimeText != null ? completedTimeText.text : elapsedTime.ToString("F2");
+        }
+        else
+        {
+            Debug.LogWarning("endScreenTimeText not assigned in GameTimer");
+        }
     }
+
 
 }
 

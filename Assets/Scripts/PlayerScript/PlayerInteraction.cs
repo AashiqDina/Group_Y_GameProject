@@ -95,10 +95,18 @@ public class PlayerInteraction : MonoBehaviour
             Boss.GetComponent<Animator>().SetTrigger("enterIdle");
         }
     }
-    public bool AreAllOrbsCollected()
+    public bool AreAllOrbsCollected(bool State)
     {
-        Debug.LogError(numberOfOrbs);
-        return numberOfOrbs >= totalOrbsToCollect;
+        if (numberOfOrbs == totalOrbsToCollect)
+        {
+            State = true;
+        }
+        else
+        {
+            State = false;
+        }
+
+        return State;
     }
 
     public int getEnemiesKilled(){

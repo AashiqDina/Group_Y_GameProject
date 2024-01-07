@@ -28,6 +28,7 @@ public class OrbWin : MonoBehaviour
     public int orbGained = 1;
     public GameObject gameTimer;
     public EndScreenManager endScreenManager; // Add this reference
+    public bool State = false;
 
     // Start is called before the first frame update
     private void OnCollisionExit(Collision collision)
@@ -42,7 +43,7 @@ public class OrbWin : MonoBehaviour
             gameTimer.GetComponent<GameTimer>().StopTimer();
 
             // Check if all orbs are collected
-            if (playerInteraction.AreAllOrbsCollected())
+            if (playerInteraction.AreAllOrbsCollected(State))
             {
                 endScreenManager.ShowEndScreen(); // Show the end screen
             }
