@@ -41,4 +41,3 @@ public class StartOrRestartGame : MonoBehaviour
         Time.timeScale = 1f; // Resume the game
     }
 }
-
