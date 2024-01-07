@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class EndScreenManager : MonoBehaviour
 {
-    public GameObject endScreenPanel; // Assign in the Inspector
+    public GameObject endScreenPanel;
 
     public void ShowEndScreen()
     {

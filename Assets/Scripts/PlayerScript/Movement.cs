@@ -31,9 +31,6 @@ public class Movement : MonoBehaviour
 
         forwardsBack = movement.MoveX;
         rightLeft = movement.MoveZ;
-
-        //movement.Jump.performed += PlayerJump
-
     }
 
     // Update is called once per frame

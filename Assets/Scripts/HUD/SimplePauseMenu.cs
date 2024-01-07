@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement; // Required for scene management
+using UnityEngine.SceneManagement;
 
 public class SimplePauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuPanel;
     private PlayerInput playerInput;
     private InputAction pauseAction;
-    private InputAction resetAction; // New action for reset
+    private InputAction resetAction;
 
     private void Awake()
     {
@@ -34,7 +34,7 @@ public class SimplePauseMenu : MonoBehaviour
         }
 
         pauseAction.performed += _ => TogglePause();
-        resetAction.performed += _ => ResetLevel(); // Add callback for reset
+        resetAction.performed += _ => ResetLevel(); 
     }
 
     private void OnEnable()
@@ -68,7 +68,6 @@ public class SimplePauseMenu : MonoBehaviour
         Time.timeScale = 1f;
     }
 
-    // New method: Reset the current level
     private void ResetLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // Reloads the current scene

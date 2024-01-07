@@ -4,8 +4,8 @@ using UnityEngine.UI;
 
 public class StartOrRestartGame : MonoBehaviour
 {
-    public GameObject startScreenPanel; // Assign this in the Inspector
-    public Text difficultyText; // Assign this in the Inspector
+    public GameObject startScreenPanel;
+    public Text difficultyText; 
     public InputAction startAction;
     public InputAction increaseDifficultyAction;
     public InputAction decreaseDifficultyAction;
