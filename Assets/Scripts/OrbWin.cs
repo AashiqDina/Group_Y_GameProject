@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OrbWin : MonoBehaviour
+/*public class OrbWin : MonoBehaviour
 {
     private bool collisonOccured = false;
     public int orbGained = 1;
@@ -19,4 +19,34 @@ public class OrbWin : MonoBehaviour
             gameTimer.GetComponent<GameTimer>().StopTimer();
         }
     }
+}*/
+
+
+public class OrbWin : MonoBehaviour
+{
+    private bool collisionOccurred = false;
+    public int orbGained = 1;
+    public GameObject gameTimer;
+    public EndScreenManager endScreenManager; // Add this reference
+
+    // Start is called before the first frame update
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player" && !collisionOccurred)
+        {
+            Destroy(gameObject);
+            PlayerInteraction playerInteraction = collision.gameObject.GetComponent<PlayerInteraction>();
+            playerInteraction.getOrb(orbGained);
+            collisionOccurred = true;
+
+            gameTimer.GetComponent<GameTimer>().StopTimer();
+
+            // Check if all orbs are collected
+            if (playerInteraction.AreAllOrbsCollected())
+            {
+                endScreenManager.ShowEndScreen(); // Show the end screen
+            }
+        }
+    }
 }
+

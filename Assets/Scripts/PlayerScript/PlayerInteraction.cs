@@ -9,6 +9,7 @@ public class PlayerInteraction : MonoBehaviour
     private int numberOfOrbs = 0;
     private int EnemiesKilled = 0;
     private int PlayerScore = 0;
+    private int totalOrbsToCollect = 5;
     private string HealthStat;
     public Heath health;
     public NumberOrbs numberOrbs;
@@ -93,6 +94,11 @@ public class PlayerInteraction : MonoBehaviour
         {
             Boss.GetComponent<Animator>().SetTrigger("enterIdle");
         }
+    }
+    public bool AreAllOrbsCollected()
+    {
+        Debug.LogError(numberOfOrbs);
+        return numberOfOrbs >= totalOrbsToCollect;
     }
 
     public int getEnemiesKilled(){
