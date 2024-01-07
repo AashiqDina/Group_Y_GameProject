@@ -473,6 +473,24 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""increaseDifficultyAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""ef93512c-cd1a-48ac-a436-4f76be481c96"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""decreaseDifficultyAction"",
+                    ""type"": ""Button"",
+                    ""id"": ""33e941e0-68ef-48ea-9549-f5ecf0c23c1c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -506,6 +524,28 @@ public partial class @Input: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""412735d6-3bc6-4593-9125-a480797bfb7e"",
+                    ""path"": ""<Keyboard>/="",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""increaseDifficultyAction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e57dee20-ae94-473e-bc4c-1b392ce95799"",
+                    ""path"": ""<Keyboard>/-"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""decreaseDifficultyAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -549,6 +589,8 @@ public partial class @Input: IInputActionCollection2, IDisposable
         m_Pause_Pause = m_Pause.FindAction("Pause", throwIfNotFound: true);
         m_Pause_Reset = m_Pause.FindAction("Reset", throwIfNotFound: true);
         m_Pause_Start = m_Pause.FindAction("Start", throwIfNotFound: true);
+        m_Pause_increaseDifficultyAction = m_Pause.FindAction("increaseDifficultyAction", throwIfNotFound: true);
+        m_Pause_decreaseDifficultyAction = m_Pause.FindAction("decreaseDifficultyAction", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1007,6 +1049,8 @@ public partial class @Input: IInputActionCollection2, IDisposable
     private readonly InputAction m_Pause_Pause;
     private readonly InputAction m_Pause_Reset;
     private readonly InputAction m_Pause_Start;
+    private readonly InputAction m_Pause_increaseDifficultyAction;
+    private readonly InputAction m_Pause_decreaseDifficultyAction;
     public struct PauseActions
     {
         private @Input m_Wrapper;
@@ -1014,6 +1058,8 @@ public partial class @Input: IInputActionCollection2, IDisposable
         public InputAction @Pause => m_Wrapper.m_Pause_Pause;
         public InputAction @Reset => m_Wrapper.m_Pause_Reset;
         public InputAction @Start => m_Wrapper.m_Pause_Start;
+        public InputAction @increaseDifficultyAction => m_Wrapper.m_Pause_increaseDifficultyAction;
+        public InputAction @decreaseDifficultyAction => m_Wrapper.m_Pause_decreaseDifficultyAction;
         public InputActionMap Get() { return m_Wrapper.m_Pause; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1032,6 +1078,12 @@ public partial class @Input: IInputActionCollection2, IDisposable
             @Start.started += instance.OnStart;
             @Start.performed += instance.OnStart;
             @Start.canceled += instance.OnStart;
+            @increaseDifficultyAction.started += instance.OnIncreaseDifficultyAction;
+            @increaseDifficultyAction.performed += instance.OnIncreaseDifficultyAction;
+            @increaseDifficultyAction.canceled += instance.OnIncreaseDifficultyAction;
+            @decreaseDifficultyAction.started += instance.OnDecreaseDifficultyAction;
+            @decreaseDifficultyAction.performed += instance.OnDecreaseDifficultyAction;
+            @decreaseDifficultyAction.canceled += instance.OnDecreaseDifficultyAction;
         }
 
         private void UnregisterCallbacks(IPauseActions instance)
@@ -1045,6 +1097,12 @@ public partial class @Input: IInputActionCollection2, IDisposable
             @Start.started -= instance.OnStart;
             @Start.performed -= instance.OnStart;
             @Start.canceled -= instance.OnStart;
+            @increaseDifficultyAction.started -= instance.OnIncreaseDifficultyAction;
+            @increaseDifficultyAction.performed -= instance.OnIncreaseDifficultyAction;
+            @increaseDifficultyAction.canceled -= instance.OnIncreaseDifficultyAction;
+            @decreaseDifficultyAction.started -= instance.OnDecreaseDifficultyAction;
+            @decreaseDifficultyAction.performed -= instance.OnDecreaseDifficultyAction;
+            @decreaseDifficultyAction.canceled -= instance.OnDecreaseDifficultyAction;
         }
 
         public void RemoveCallbacks(IPauseActions instance)
@@ -1104,5 +1162,7 @@ public partial class @Input: IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
+        void OnIncreaseDifficultyAction(InputAction.CallbackContext context);
+        void OnDecreaseDifficultyAction(InputAction.CallbackContext context);
     }
 }
