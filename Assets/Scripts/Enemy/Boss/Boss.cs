@@ -20,6 +20,7 @@ public class Boss : MonoBehaviour
         BossHealthBar.SetActive(false);
         GetComponent<EnemyHealth>().enabled = false;
         transform.position = bossSpawnPoint.position;
+        GetComponent<Animator>().SetTrigger("enterIdle");
     }
     public void activatecombat()
     {

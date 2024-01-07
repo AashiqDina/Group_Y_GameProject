@@ -7073,7 +7073,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportTo: {fileID: 1979263602}
-  orbGained: 1
 --- !u!1 &348299313
 GameObject:
   m_ObjectHideFlags: 0
@@ -20718,7 +20717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportTo: {fileID: 661908024}
-  orbGained: 1
 --- !u!1 &1062630139
 GameObject:
   m_ObjectHideFlags: 0
@@ -21607,6 +21605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orbGained: 1
+  gameTimer: {fileID: 628467330}
 --- !u!1 &1114636776
 GameObject:
   m_ObjectHideFlags: 0
@@ -24571,14 +24570,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3616122876633429826, guid: a7eb3c7832631bf4aadf73c615faf69b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1272474945}
+      addedObject: {fileID: 1272474949}
   m_SourcePrefab: {fileID: 100100000, guid: a7eb3c7832631bf4aadf73c615faf69b, type: 3}
 --- !u!4 &1272474944 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9113629121791851567, guid: a7eb3c7832631bf4aadf73c615faf69b, type: 3}
   m_PrefabInstance: {fileID: 1272474943}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1272474945
+--- !u!114 &1272474949
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24587,11 +24586,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 643833503}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 645f53bd7ea0489419ae806c0bf4bf52, type: 3}
+  m_Script: {fileID: 11500000, guid: 2471b7adc77998941a0667bab1978a3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   teleportTo: {fileID: 1215256570}
-  orbGained: 0
+  gameTimer: {fileID: 628467330}
 --- !u!1 &1277384023
 GameObject:
   m_ObjectHideFlags: 0
@@ -32376,7 +32375,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportTo: {fileID: 335302868}
-  orbGained: 1
 --- !u!1 &1770610789
 GameObject:
   m_ObjectHideFlags: 0
@@ -38395,7 +38393,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportTo: {fileID: 348299314}
-  orbGained: 1
 --- !u!1 &2025701762
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class OrbWin : MonoBehaviour
 {
     private bool collisonOccured = false;
     public int orbGained = 1;
-    private GameTimer gameTimer;
+    public GameObject gameTimer;
 
     // Start is called before the first frame update
     private void OnCollisionExit(Collision collision)
@@ -16,8 +16,7 @@ public class OrbWin : MonoBehaviour
             Destroy(gameObject);
             collision.gameObject.GetComponent<PlayerInteraction>().getOrb(orbGained);
             collisonOccured = true;
-
-            //Add the code for what happens when they take the final orb
+            gameTimer.GetComponent<GameTimer>().StopTimer();
         }
     }
 }

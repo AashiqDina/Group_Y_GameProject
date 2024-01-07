@@ -50,11 +50,6 @@ public class GameTimer : MonoBehaviour
     public Text timerText; // Reference to the UI Text component
     public Text completedTimeText;
 
-    void Start()
-    {
-        StartTimer();
-    }
-
     void Update()
     {
         if (timerActive)

@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     public int maxHealth;
-    public int maxOrbs;
     private int currentHealth;
     private int numberOfOrbs = 0;
     private int EnemiesKilled = 0;
