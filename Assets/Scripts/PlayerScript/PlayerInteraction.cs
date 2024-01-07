@@ -64,7 +64,10 @@ public class PlayerInteraction : MonoBehaviour
         Debug.Log("Gameover");
         transform.position = CurrentSpawnPoint.position;
         NeedHealthRecovery = true;
-        Boss.GetComponent<Boss>().restart();
+        if (numberOfOrbs == 4)
+            {
+            Boss.GetComponent<Boss>().restart();
+            }
     }
 
     void RespawnHeal(){
