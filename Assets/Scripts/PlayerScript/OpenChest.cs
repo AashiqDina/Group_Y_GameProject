@@ -78,8 +78,11 @@ public class OpenChest : MonoBehaviour
                 ChestInventory.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.parent = Chest.transform.GetChild(0).gameObject.transform;
                 NewChestInvUsed -= 1;
             }
-            ChestInvUsed = NewChestInvUsed;
-            
+            ChestInvUsed = NewChestInvUsed; 
+        }
+        if (Camera.GetComponent<CameraRaycast>().GetObject(10).name == "Mimick")
+        {
+            Camera.GetComponent<CameraRaycast>().GetObject(10).GetComponent<Mimick>().Activate();
         }
     }
 }
