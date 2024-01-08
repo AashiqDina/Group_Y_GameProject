@@ -11367,7 +11367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemydamage: 1
-  DamageRate: 0
+  DamageRate: 1
 --- !u!114 &444243323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15010,7 +15010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemydamage: 1
-  DamageRate: 0
+  DamageRate: 1
 --- !u!114 &626436522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20949,7 +20949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemydamage: 1
-  DamageRate: 0
+  DamageRate: 1
 --- !u!114 &879291043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32164,7 +32164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemydamage: 1
-  DamageRate: 0
+  DamageRate: 1
 --- !u!114 &1508789657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46104,7 +46104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemydamage: 1
-  DamageRate: 0
+  DamageRate: 1
 --- !u!114 &2116603293
 MonoBehaviour:
   m_ObjectHideFlags: 0
