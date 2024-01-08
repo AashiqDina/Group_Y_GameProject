@@ -10802,7 +10802,7 @@ MonoBehaviour:
   bossSpawnPoint: {fileID: 363994089}
   BossHealthBar: {fileID: 1142084823}
   Orb: {fileID: 1114428525}
-  Damage: 10
+  Damage: 2
   maxhealth: 300
 --- !u!114 &423943517
 MonoBehaviour:
@@ -11395,7 +11395,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344024aaee4036249a02d3e9a4878f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damageAmount: 1
 --- !u!65 &444243325
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15038,7 +15038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344024aaee4036249a02d3e9a4878f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damageAmount: 1
 --- !u!65 &626436524
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20977,7 +20977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344024aaee4036249a02d3e9a4878f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damageAmount: 1
 --- !u!65 &879291045
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32192,7 +32192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344024aaee4036249a02d3e9a4878f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damageAmount: 1
 --- !u!65 &1508789659
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46132,7 +46132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344024aaee4036249a02d3e9a4878f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
+  damageAmount: 1
 --- !u!65 &2116603295
 BoxCollider:
   m_ObjectHideFlags: 0
