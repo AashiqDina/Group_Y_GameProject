@@ -8,7 +8,6 @@ public class Boss : MonoBehaviour
     public Transform bossSpawnPoint;
     public GameObject BossHealthBar;
     public GameObject Orb;
-    public int Damage;
     public int maxhealth = 300;
     // Start is called before the first frame update
 

@@ -2041,7 +2041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 20
+  enemydamage: 2
   DamageRate: 1
 --- !u!114 &57006257
 MonoBehaviour:
@@ -4103,7 +4103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 20
+  enemydamage: 2
   DamageRate: 1
 --- !u!114 &170131723
 MonoBehaviour:
@@ -10802,7 +10802,6 @@ MonoBehaviour:
   bossSpawnPoint: {fileID: 363994089}
   BossHealthBar: {fileID: 1142084823}
   Orb: {fileID: 1114428525}
-  Damage: 2
   maxhealth: 300
 --- !u!114 &423943517
 MonoBehaviour:
@@ -10816,7 +10815,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 2
+  enemydamage: 1
   DamageRate: 1
 --- !u!1 &430743732
 GameObject:
@@ -11761,7 +11760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 20
+  enemydamage: 2
   DamageRate: 1
 --- !u!114 &458191404
 MonoBehaviour:
@@ -13239,7 +13238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 20
+  enemydamage: 2
   DamageRate: 1
 --- !u!114 &530906009
 MonoBehaviour:
@@ -13376,7 +13375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 20
+  enemydamage: 2
   DamageRate: 1
 --- !u!114 &540345207
 MonoBehaviour:
@@ -14783,7 +14782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 20
+  enemydamage: 2
   DamageRate: 1
 --- !u!114 &612170279
 MonoBehaviour:
@@ -15815,7 +15814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 20
+  enemydamage: 2
   DamageRate: 1
 --- !u!114 &657010800
 MonoBehaviour:
@@ -20343,7 +20342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 20
+  enemydamage: 1
   DamageRate: 1
 --- !u!114 &838886361
 MonoBehaviour:
@@ -20804,7 +20803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 20
+  enemydamage: 2
   DamageRate: 1
 --- !u!114 &864252351
 MonoBehaviour:
@@ -22758,7 +22757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 20
+  enemydamage: 2
   DamageRate: 1
 --- !u!114 &1000723261
 MonoBehaviour:
@@ -34486,7 +34485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 20
+  enemydamage: 2
   DamageRate: 1
 --- !u!114 &1610563856
 MonoBehaviour:
@@ -35721,7 +35720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 20
+  enemydamage: 2
   DamageRate: 1
 --- !u!114 &1666926762
 MonoBehaviour:
