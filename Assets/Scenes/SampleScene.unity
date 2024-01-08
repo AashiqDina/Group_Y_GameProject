@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10816,8 +10816,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 20
-  DamageRate: 0
+  enemydamage: 2
+  DamageRate: 1
 --- !u!1 &430743732
 GameObject:
   m_ObjectHideFlags: 0
@@ -11366,7 +11366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 10
+  enemydamage: 1
   DamageRate: 0
 --- !u!114 &444243323
 MonoBehaviour:
@@ -14118,8 +14118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 10
-  DamageRate: 0
+  enemydamage: 1
+  DamageRate: 1
 --- !u!1 &587215275
 GameObject:
   m_ObjectHideFlags: 0
@@ -15009,7 +15009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 10
+  enemydamage: 1
   DamageRate: 0
 --- !u!114 &626436522
 MonoBehaviour:
@@ -20948,7 +20948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 10
+  enemydamage: 1
   DamageRate: 0
 --- !u!114 &879291043
 MonoBehaviour:
@@ -27751,6 +27751,7 @@ GameObject:
   - component: {fileID: 1268655343}
   - component: {fileID: 1268655342}
   - component: {fileID: 1268655346}
+  - component: {fileID: 1268655347}
   m_Layer: 5
   m_Name: StartScreen
   m_TagString: Untagged
@@ -27906,6 +27907,19 @@ MonoBehaviour:
       m_Action: Decrease Difficulty
       m_Flags: 0
     m_Flags: 0
+--- !u!114 &1268655347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268655341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e151f6ae4a043f1a54c6ada5065ed6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentDifficulty: 0
 --- !u!1001 &1269358407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32149,7 +32163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 10
+  enemydamage: 1
   DamageRate: 0
 --- !u!114 &1508789657
 MonoBehaviour:
@@ -46089,7 +46103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0c6e95f941e27c4fa9b99f0c343b6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemydamage: 10
+  enemydamage: 1
   DamageRate: 0
 --- !u!114 &2116603293
 MonoBehaviour:

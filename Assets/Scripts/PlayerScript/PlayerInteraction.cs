@@ -20,9 +20,9 @@ public class PlayerInteraction : MonoBehaviour
 
     private bool NeedHealthRecovery = false;
     private bool OnGround = false;
+    
 
     public CreateEnemies createEnemies;
-    
     [SerializeField] private GameObject Boss;
     [SerializeField] private Transform CheckGround;
     [SerializeField] private float GroundRadius;
@@ -48,7 +48,8 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            currentHealth -= collision.gameObject.GetComponent<EnemyDamage>().enemydamage;
+            int damage = DifficultyManager.Instance.GetDamageBasedOnDifficulty();
+            currentHealth -= collision.gameObject.GetComponent<EnemyDamage>().enemydamage * damage;
             HealthStat = currentHealth.ToString() + "/" + maxHealth.ToString();
             CurrentHealthStat.updateHealthStat(HealthStat);
         }

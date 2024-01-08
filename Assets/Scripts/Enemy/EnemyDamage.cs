@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-    public int enemydamage = 10;
+    public int enemydamage = 1;
     public float DamageRate;
     private float DamageLastDone;
     void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Player" && !CanDamage())
         {
-            int actualDamage = enemydamage * DifficultyManager.Instance.GetDamageBasedOnDifficulty();
             enemydamage = 0;
         }
 

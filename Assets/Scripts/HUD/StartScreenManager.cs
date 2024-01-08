@@ -39,9 +39,8 @@ public class StartOrRestartGame : MonoBehaviour
         decreaseDifficultyAction.performed -= OnDecreaseDifficulty;
     }
 
-    private void Start()
+    void Start()
     {
-        startScreenPanel.SetActive(true);
         Time.timeScale = 0f; // Pause the game
     }
 
